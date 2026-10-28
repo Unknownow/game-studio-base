@@ -1,0 +1,23 @@
+# game-studio template manifest v1
+# One gitignore-style glob per line. "!" excludes, "#" starts a comment.
+# Files matching these globs are owned by the template and replaced by
+# `python tools/studio.py update --from <template checkout>`.
+# Engine layers add their own lines in files.manifest.d/*.manifest.
+AGENTS.md
+CLAUDE.md
+.agents/skills/**
+roles/**
+gates/**
+rules/**
+templates/**
+docs/studio/**
+tools/**
+hooks/**
+studio-tests/**
+.github/workflows/check.yml
+.github/ISSUE_TEMPLATE/**
+.github/PULL_REQUEST_TEMPLATE.md
+files.manifest
+files.manifest.d/**
+LICENSE
+NOTICE

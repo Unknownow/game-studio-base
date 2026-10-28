@@ -1,0 +1,16 @@
+schema_version = 1
+
+[framework]
+source = ""   # set by `python tools/studio.py update`
+version = ""  # set by `python tools/studio.py update`
+
+[project]
+name = ""
+stage = "Concept"
+
+[modes]
+rigor = "minimal"
+
+[engine]
+name = ""
+version = ""

@@ -1,0 +1,18 @@
+Game Studio Base
+Copyright (c) 2026 Cuong Bui
+
+This project is adapted from Claude Code Game Studios (CCGS) v1.2.0,
+https://github.com/Donchitos/Claude-Code-Game-Studios (tag v1.2.0),
+Copyright (c) 2026 Donchitos, released under the MIT licence.
+
+What changed: the skills, roles, gates, rules, templates and helper scripts
+were rewritten to be agent-agnostic. Every skill is a numbered checklist that
+works in pi, Codex, Cursor, Claude Code or by hand. The shell and YAML helpers
+were replaced by one Python command line (tools/studio.py), and project
+settings moved from YAML to TOML.
+
+Provenance: UPSTREAM.toml maps each upstream file to the file that replaces it,
+or lists it as ignored together with the reason.
+
+This project is not affiliated with, endorsed by or sponsored by Donchitos or
+Anthropic. "Claude" is a trademark of Anthropic.
