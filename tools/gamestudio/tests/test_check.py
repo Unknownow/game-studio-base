@@ -221,6 +221,26 @@ class CheckTest(RepoCase):
         self.assertEqual(code, 0)
         self.assertIn("WARN never-overwrite", out)
 
+    def test_staged_non_ascii_path_is_checked(self):
+        self.with_toml({"production/epics/e/caf\u00e9.md": story().replace("> **Type**: Logic\n", "")})
+        self.git_init()
+        git(self.root, "add", "-A")
+        code, out, _ = self.check("--staged")
+        self.assertEqual(code, 1)
+        self.assertIn("story-sections", out)
+
+    def test_staged_deletion_reruns_repo_wide_checks(self):
+        files = skill("tech-debt")
+        files["roles/lead.md"] = "---\nname: lead\ndescription: x\ntier: inherit\ncan: [read]\nskills: [tech-debt]\n---\n"
+        self.with_toml(files)
+        self.git_init()
+        git(self.root, "add", "-A")
+        git(self.root, "commit", "-q", "-m", "x")
+        git(self.root, "rm", "-q", "-r", ".agents/skills/tech-debt")
+        code, out, _ = self.check("--staged")
+        self.assertEqual(code, 1)
+        self.assertIn("skill 'tech-debt' does not exist", out)
+
 
 if __name__ == "__main__":
     unittest.main()

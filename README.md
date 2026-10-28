@@ -8,6 +8,7 @@ It works with pi, Codex, Cursor, Claude Code or plain editor and terminal. It is
 
 - Python 3.11 or newer on your PATH as `python`. The Windows Store "python" alias does not count.
 - git.
+- bash (Git Bash on Windows) for the git hooks.
 
 ## Quick start
 

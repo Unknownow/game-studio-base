@@ -29,12 +29,26 @@ class Source(object):
         self.root = root
         self.staged = staged
         self._status = {}
+        self._deleted = []
         if staged:
-            code, out = git(root, "diff", "--cached", "--name-status", "--diff-filter=ACMR")
-            for line in out.splitlines():
-                parts = line.split("\t")
-                if len(parts) >= 2:
-                    self._status[parts[-1].replace("\\", "/")] = parts[0][0]
+            code, out = git(root, "diff", "--cached", "--name-status", "-z", "--diff-filter=ACMRD")
+            tokens = out.split("\0")
+            i = 0
+            while i < len(tokens):
+                st = tokens[i]
+                if not st:
+                    i += 1
+                    continue
+                n = 2 if st[0] in "RC" else 1
+                paths = tokens[i + 1:i + 1 + n]
+                i += 1 + n
+                if not paths:
+                    break
+                rel = paths[-1].replace("\\", "/")
+                if st[0] == "D":
+                    self._deleted.append(rel)
+                else:
+                    self._status[rel] = st[0]
             self._files = sorted(self._status)
         else:
             self._files = walk(root)
@@ -53,7 +67,7 @@ class Source(object):
         return read_text(os.path.join(self.root, rel))
 
     def any(self, *prefixes):
-        return any(f == p or f.startswith(p) for f in self._files for p in prefixes)
+        return any(f == p or f.startswith(p) for f in self._files + self._deleted for p in prefixes)
 
 
 def _fm(report, src, rel):
@@ -291,7 +305,8 @@ def run_check(root, staged=False):
     if not staged or src.any(".agents/skills/"):
         check_skills(report, src)
     if not staged or src.any("roles/", ".agents/skills/"):
-        check_roles(report, src)
+        # A role names skills, so a staged change to a skill (a deletion, say) re-checks every role.
+        check_roles(report, Source(root, False) if staged and src.any(".agents/skills/") else src)
     if not staged or src.any("rules/"):
         check_rules(report, src)
     if not staged or src.any("ENGINE.md", ".agents/skills/", "docs/studio/"):
