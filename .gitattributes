@@ -1,3 +1,6 @@
+# Text files use LF everywhere, so scripts, manifests and hashes behave the same on every OS.
+* text=auto eol=lf
+
 # Scripts and hooks must keep LF line endings so bash works on Windows.
 *.sh text eol=lf
 hooks/* text eol=lf
