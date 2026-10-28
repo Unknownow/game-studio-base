@@ -1,0 +1,547 @@
+# Maps every file of the upstream repo (Claude Code Game Studios) to the file that replaces it here,
+# or lists it as ignored with a reason. `python tools/studio.py upstream-diff --coverage` checks that nothing is unaccounted for.
+# Reasons start with: claude-only: | other-engine: | ccgs-meta: | replaced: | engine-layer:
+
+[upstream]
+repo = "https://github.com/Donchitos/Claude-Code-Game-Studios"
+tag = "v1.2.0"
+
+[[map]]
+from = ".claude/skills/start/**"
+to = ".agents/skills/start/"
+
+[[map]]
+from = ".claude/skills/help/**"
+to = ".agents/skills/help/"
+
+[[map]]
+from = ".claude/skills/setup-engine/references/4-claude-md-stack.md"
+to = ".agents/skills/setup-engine/references/4-agents-md-stack.md"
+
+[[map]]
+from = ".claude/skills/setup-engine/references/5.5-project-yaml.md"
+to = ".agents/skills/setup-engine/references/5.5-project-toml.md"
+
+[[map]]
+from = ".claude/skills/setup-engine/**"
+to = ".agents/skills/setup-engine/"
+
+[[map]]
+from = ".claude/skills/brainstorm/**"
+to = ".agents/skills/brainstorm/"
+
+[[map]]
+from = ".claude/skills/create-stories/**"
+to = ".agents/skills/create-stories/"
+
+[[map]]
+from = ".claude/skills/dev-story/**"
+to = ".agents/skills/dev-story/"
+
+[[map]]
+from = ".claude/skills/story-done/**"
+to = ".agents/skills/story-done/"
+
+[[map]]
+from = ".claude/skills/settings/**"
+to = ".agents/skills/settings/"
+
+[[map]]
+from = ".claude/agents/creative-director.md"
+to = "roles/creative-director.md"
+
+[[map]]
+from = ".claude/agents/art-director.md"
+to = "roles/art-director.md"
+
+[[map]]
+from = ".claude/agents/technical-director.md"
+to = "roles/technical-director.md"
+
+[[map]]
+from = ".claude/agents/producer.md"
+to = "roles/producer.md"
+
+[[map]]
+from = ".claude/agents/qa-lead.md"
+to = "roles/qa-lead.md"
+
+[[map]]
+from = ".claude/agents/lead-programmer.md"
+to = "roles/lead-programmer.md"
+
+[[map]]
+from = ".claude/agents/engine-programmer.md"
+to = "roles/engine-programmer.md"
+
+[[map]]
+from = ".claude/agents/ui-programmer.md"
+to = "roles/ui-programmer.md"
+
+[[map]]
+from = ".claude/agents/gameplay-programmer.md"
+to = "roles/gameplay-programmer.md"
+
+[[map]]
+from = ".claude/agents/ai-programmer.md"
+to = "roles/ai-programmer.md"
+
+[[map]]
+from = ".claude/agents/network-programmer.md"
+to = "roles/network-programmer.md"
+
+[[map]]
+from = ".claude/docs/director-gates/cd-pillars.md"
+to = "gates/cd-pillars.md"
+
+[[map]]
+from = ".claude/docs/director-gates/ad-concept-visual.md"
+to = "gates/ad-concept-visual.md"
+
+[[map]]
+from = ".claude/docs/director-gates/td-feasibility.md"
+to = "gates/td-feasibility.md"
+
+[[map]]
+from = ".claude/docs/director-gates/pr-scope.md"
+to = "gates/pr-scope.md"
+
+[[map]]
+from = ".claude/docs/director-gates/ql-story-ready.md"
+to = "gates/ql-story-ready.md"
+
+[[map]]
+from = ".claude/docs/director-gates/ql-test-coverage.md"
+to = "gates/ql-test-coverage.md"
+
+[[map]]
+from = ".claude/docs/director-gates/lp-code-review.md"
+to = "gates/lp-code-review.md"
+
+[[map]]
+from = ".claude/rules/agent-memory.md"
+to = "rules/agent-memory.md"
+
+[[map]]
+from = ".claude/rules/skill-authoring.md"
+to = "rules/skill-authoring.md"
+
+[[map]]
+from = ".claude/rules/test-standards.md"
+to = "rules/test-standards.md"
+
+[[map]]
+from = ".claude/docs/templates/game-brief.md"
+to = "templates/game-brief.md"
+
+[[map]]
+from = ".claude/docs/templates/game-concept.md"
+to = "templates/game-concept.md"
+
+[[map]]
+from = ".claude/docs/templates/story.md"
+to = "templates/story.md"
+
+[[map]]
+from = ".claude/docs/templates/session-state.md"
+to = "templates/session-state.md"
+
+[[map]]
+from = ".claude/docs/templates/architecture-decision-record.md"
+to = "templates/architecture-decision-record.md"
+
+[[map]]
+from = ".claude/docs/templates/game-design-document.md"
+to = "templates/game-design-document.md"
+
+[[map]]
+from = ".claude/docs/templates/post-mortem.md"
+to = "templates/post-mortem.md"
+
+[[map]]
+from = ".claude/docs/workflow-modes.md"
+to = "docs/studio/workflow-modes.md"
+
+[[map]]
+from = ".claude/docs/automation-modes.md"
+to = "docs/studio/automation-modes.md"
+
+[[map]]
+from = ".claude/docs/code-root-resolution.md"
+to = "docs/studio/code-root-resolution.md"
+
+[[map]]
+from = ".claude/docs/error-recovery-protocol.md"
+to = "docs/studio/error-recovery-protocol.md"
+
+[[map]]
+from = ".claude/docs/coding-standards.md"
+to = "docs/studio/coding-standards.md"
+
+[[map]]
+from = ".claude/docs/run-and-observe.md"
+to = "docs/studio/run-and-observe.md"
+
+[[map]]
+from = ".claude/docs/directory-structure.md"
+to = "docs/studio/directory-structure.md"
+
+[[map]]
+from = ".claude/docs/coordination-rules.md"
+to = "docs/studio/coordination-rules.md"
+
+[[map]]
+from = ".claude/docs/director-gates.md"
+to = "docs/studio/director-gates.md"
+
+[[map]]
+from = ".claude/docs/config-resolution.md"
+to = "docs/studio/config-resolution.md"
+
+[[map]]
+from = ".claude/docs/settings-guidance.md"
+to = "docs/studio/settings-guidance.md"
+
+[[map]]
+from = ".claude/docs/workflow-catalog.yaml"
+to = "docs/studio/workflow-catalog.yaml"
+
+[[map]]
+from = ".claude/docs/technical-preferences.md"
+to = "docs/technical-preferences.md"
+
+[[map]]
+from = "docs/COLLABORATIVE-DESIGN-PRINCIPLE.md"
+to = "docs/studio/COLLABORATIVE-DESIGN-PRINCIPLE.md"
+
+[[map]]
+from = "docs/WORKFLOW-GUIDE.md"
+to = "docs/studio/WORKFLOW-GUIDE.md"
+
+[[map]]
+from = "CLAUDE.md"
+to = "AGENTS.md"
+
+[[map]]
+from = ".claude/settings.json"
+to = "tools/gamestudio/data/claude-deny.json"
+
+[[map]]
+from = ".claude/scripts/adr-status.sh"
+to = "tools/gamestudio/helpers/adr_status.py"
+
+[[map]]
+from = ".claude/scripts/artifact-check.sh"
+to = "tools/gamestudio/helpers/artifact_check.py"
+
+[[map]]
+from = ".claude/scripts/config-set.sh"
+to = "tools/gamestudio/helpers/config_set.py"
+
+[[map]]
+from = ".claude/scripts/md-section.sh"
+to = "tools/gamestudio/helpers/md_section.py"
+
+[[map]]
+from = ".claude/scripts/project-coherence.sh"
+to = "tools/gamestudio/helpers/project_coherence.py"
+
+[[map]]
+from = ".claude/scripts/project-state.sh"
+to = "tools/gamestudio/helpers/project_state.py"
+
+[[map]]
+from = ".claude/scripts/review-receipts.sh"
+to = "tools/gamestudio/helpers/review_receipts.py"
+
+[[map]]
+from = ".claude/scripts/rotate-session-state.sh"
+to = "tools/gamestudio/helpers/rotate_session_state.py"
+
+[[map]]
+from = ".claude/scripts/session-state.sh"
+to = "tools/gamestudio/helpers/session_state.py"
+
+[[map]]
+from = ".claude/scripts/set-stage.sh"
+to = "tools/gamestudio/helpers/set_stage.py"
+
+[[map]]
+from = ".claude/scripts/story-facts.sh"
+to = "tools/gamestudio/helpers/story_facts.py"
+
+[[map]]
+from = ".claude/scripts/story-status.sh"
+to = "tools/gamestudio/helpers/story_status.py"
+
+[[map]]
+from = "project.yaml"
+to = "project.toml"
+
+[[map]]
+from = ".gitignore"
+to = ".gitignore"
+
+[[map]]
+from = ".gitattributes"
+to = ".gitattributes"
+
+[[map]]
+from = "LICENSE"
+to = "LICENSE"
+
+[[ignore]]
+path = ".claude/skills/dev-story/references/engine-checks.md"
+reason = "engine-layer: parse-check and capture commands for Unity and Unreal become ENGINE.md hook dev-story/engine-checks in the engine layer"
+
+[[ignore]]
+path = ".claude/skills/setup-engine/references/godot-language-config.md"
+reason = "other-engine: Godot language configuration; Godot is not ported"
+
+[[ignore]]
+path = ".claude/hooks/pre-compact.sh"
+reason = "claude-only: PreCompact event has no equivalent outside Claude Code"
+
+[[ignore]]
+path = ".claude/hooks/notify.sh"
+reason = "claude-only: Notification event has no equivalent outside Claude Code"
+
+[[ignore]]
+path = ".claude/hooks/session-stop.sh"
+reason = "claude-only: Stop event has no equivalent outside Claude Code"
+
+[[ignore]]
+path = ".claude/hooks/log-agent.sh"
+reason = "claude-only: SubagentStart event is Claude Code's"
+
+[[ignore]]
+path = ".claude/hooks/log-agent-stop.sh"
+reason = "claude-only: SubagentStop event is Claude Code's"
+
+[[ignore]]
+path = ".claude/hooks/log-instructions.sh"
+reason = "claude-only: InstructionsLoaded event is Claude Code's"
+
+[[ignore]]
+path = ".claude/hooks/validate-read.sh"
+reason = "claude-only: PreToolUse read guard; only Claude Code can intercept a file read"
+
+[[ignore]]
+path = ".claude/hooks/validate-write.sh"
+reason = "claude-only: PreToolUse write guard; only Claude Code can intercept a file write"
+
+[[ignore]]
+path = ".claude/hooks/validate-agent-artifact.sh"
+reason = "claude-only: SubagentStop artifact check; Claude Code's sub-agent event"
+
+[[ignore]]
+path = ".claude/hooks/update-check.sh"
+reason = "claude-only: SessionStart network probe for CCGS releases; updates here go through update and upstream-diff"
+
+[[ignore]]
+path = ".claude/hooks/yaml-helper.sh"
+reason = "replaced: tools/gamestudio/config.py (tomllib replaces the YAML helper)"
+
+[[ignore]]
+path = ".claude/hooks/session-start.sh"
+reason = "replaced: python tools/studio.py status"
+
+[[ignore]]
+path = ".claude/hooks/detect-gaps.sh"
+reason = "replaced: python tools/studio.py status (Gaps section)"
+
+[[ignore]]
+path = ".claude/hooks/validate-commit.sh"
+reason = "replaced: python tools/studio.py check --staged (run by hooks/pre-commit)"
+
+[[ignore]]
+path = ".claude/hooks/validate-push.sh"
+reason = "replaced: hooks/pre-push"
+
+[[ignore]]
+path = ".claude/hooks/validate-assets.sh"
+reason = "replaced: python tools/studio.py check (data-json)"
+
+[[ignore]]
+path = ".claude/hooks/validate-skill-change.sh"
+reason = "replaced: python tools/studio.py check (skill-frontmatter, skill-lint)"
+
+[[ignore]]
+path = ".claude/hooks/validate-registry.sh"
+reason = "replaced: python tools/studio.py check (registry-renumber advice)"
+
+[[ignore]]
+path = ".claude/statusline.sh"
+reason = "claude-only: status line is Claude Code's"
+
+[[ignore]]
+path = ".claude/scripts/hook-input.sh"
+reason = "claude-only: parses Claude Code's hook JSON"
+
+[[ignore]]
+path = ".claude/scripts/read-guard.sh"
+reason = "claude-only: backs the read guard hook"
+
+[[ignore]]
+path = ".claude/scripts/write-guard.sh"
+reason = "claude-only: backs the write guard hook"
+
+[[ignore]]
+path = ".claude/scripts/compat-inventory.sh"
+reason = "claude-only: inventories Claude Code frontmatter compatibility"
+
+[[ignore]]
+path = ".claude/scripts/migrate-v1-config.sh"
+reason = "ccgs-meta: migrates a CCGS v1.0 project.yaml; not needed for new projects"
+
+[[ignore]]
+path = ".claude/scripts/godot-parse-check.gd"
+reason = "other-engine: Godot parse check script"
+
+[[ignore]]
+path = ".claude/scripts/yaml-get.awk"
+reason = "replaced: tomllib reads project.toml"
+
+[[ignore]]
+path = ".github/FUNDING.yml"
+reason = "ccgs-meta: upstream sponsorship file"
+
+[[ignore]]
+path = ".github/CODEOWNERS"
+reason = "ccgs-meta: upstream code owners"
+
+[[ignore]]
+path = "CHANGELOG.md"
+reason = "ccgs-meta: upstream project housekeeping (this repo keeps its own)"
+
+[[ignore]]
+path = "CONTRIBUTING.md"
+reason = "ccgs-meta: upstream project housekeeping (this repo keeps its own)"
+
+[[ignore]]
+path = "SECURITY.md"
+reason = "ccgs-meta: upstream project housekeeping (this repo keeps its own)"
+
+[[ignore]]
+path = "UPGRADING.md"
+reason = "ccgs-meta: upstream project housekeeping (this repo keeps its own)"
+
+[[ignore]]
+path = "docs/migration-guide-v1.1.md"
+reason = "ccgs-meta: upstream project housekeeping (this repo keeps its own)"
+
+[[ignore]]
+path = ".worktreeinclude"
+reason = "ccgs-meta: upstream project housekeeping (this repo keeps its own)"
+
+[[ignore]]
+path = "README.md"
+reason = "ccgs-meta: upstream readme (this repo has its own README.md)"
+
+[[ignore]]
+path = ".claude/docs/CLAUDE-local-template.md"
+reason = "claude-only: template for CLAUDE.local.md"
+
+[[ignore]]
+path = ".claude/docs/settings-local-template.md"
+reason = "claude-only: template for .claude/settings.local.json"
+
+[[ignore]]
+path = ".claude/docs/hooks-reference.md"
+reason = "claude-only: documents Claude Code hooks"
+
+[[ignore]]
+path = ".claude/docs/hooks-reference/**"
+reason = "claude-only: documents Claude Code hooks"
+
+[[ignore]]
+path = "production/.gdignore"
+reason = "other-engine: Godot ignore marker"
+
+[[ignore]]
+path = "docs/engine-reference/godot/**"
+reason = "other-engine: Godot reference docs"
+
+[[ignore]]
+path = "docs/engine-reference/unreal/**"
+reason = "other-engine: Unreal reference docs"
+
+[[ignore]]
+path = "docs/engine-reference/unity/**"
+reason = "engine-layer: Unity reference docs ship in game-studio-unity (see UPSTREAM.unity.toml)"
+
+[[ignore]]
+path = ".claude/agents/godot-csharp-specialist.md"
+reason = "other-engine: Godot specialist"
+
+[[ignore]]
+path = ".claude/agents/godot-gdextension-specialist.md"
+reason = "other-engine: Godot specialist"
+
+[[ignore]]
+path = ".claude/agents/godot-gdscript-specialist.md"
+reason = "other-engine: Godot specialist"
+
+[[ignore]]
+path = ".claude/agents/godot-shader-specialist.md"
+reason = "other-engine: Godot specialist"
+
+[[ignore]]
+path = ".claude/agents/godot-specialist.md"
+reason = "other-engine: Godot specialist"
+
+[[ignore]]
+path = ".claude/agents/ue-blueprint-specialist.md"
+reason = "other-engine: Unreal specialist"
+
+[[ignore]]
+path = ".claude/agents/ue-gas-specialist.md"
+reason = "other-engine: Unreal specialist"
+
+[[ignore]]
+path = ".claude/agents/ue-replication-specialist.md"
+reason = "other-engine: Unreal specialist"
+
+[[ignore]]
+path = ".claude/agents/ue-umg-specialist.md"
+reason = "other-engine: Unreal specialist"
+
+[[ignore]]
+path = ".claude/agents/unreal-specialist.md"
+reason = "other-engine: Unreal specialist"
+
+[[ignore]]
+path = ".claude/agents/unity-addressables-specialist.md"
+reason = "engine-layer: Unity specialist ships in game-studio-unity (see UPSTREAM.unity.toml)"
+
+[[ignore]]
+path = ".claude/agents/unity-dots-specialist.md"
+reason = "engine-layer: Unity specialist ships in game-studio-unity (see UPSTREAM.unity.toml)"
+
+[[ignore]]
+path = ".claude/agents/unity-shader-specialist.md"
+reason = "engine-layer: Unity specialist ships in game-studio-unity (see UPSTREAM.unity.toml)"
+
+[[ignore]]
+path = ".claude/agents/unity-specialist.md"
+reason = "engine-layer: Unity specialist ships in game-studio-unity (see UPSTREAM.unity.toml)"
+
+[[ignore]]
+path = ".claude/agents/unity-ui-specialist.md"
+reason = "engine-layer: Unity specialist ships in game-studio-unity (see UPSTREAM.unity.toml)"
+
+[[ignore]]
+path = "studio-tests/agents/engine/godot/**"
+reason = "other-engine: Godot specialist test specs"
+
+[[ignore]]
+path = "studio-tests/agents/engine/unreal/**"
+reason = "other-engine: Unreal specialist test specs"
+
+[[ignore]]
+path = "studio-tests/agents/engine/unity/**"
+reason = "engine-layer: Unity specialist test specs ship in game-studio-unity"
+
+[[ignore]]
+path = ".claude/rules/scene-files.md"
+reason = "engine-layer: scene file rules are engine-specific; the Unity version ships in game-studio-unity"
