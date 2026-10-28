@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Regenerates the Claude Code add-on files quietly. Never blocks.
+dir="$(cd "$(dirname "$0")" && pwd)"
+root="$(cd "$dir/.." && pwd)"
+PY="$(bash "$dir/_python.sh")" || exit 0
+cd "$root" || exit 0
+$PY tools/studio.py claude-sync >/dev/null 2>&1 || echo "game-studio hook: claude-sync failed (run it by hand to see why)" >&2
+exit 0

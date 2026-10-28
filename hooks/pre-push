@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Advice only: warns when pushing to a protected branch. Never blocks.
+while read -r local_ref local_sha remote_ref remote_sha; do
+  branch="${remote_ref#refs/heads/}"
+  case "$branch" in
+    main|master|release/*) echo "WARN pushing to protected branch $branch" >&2 ;;
+  esac
+done
+exit 0

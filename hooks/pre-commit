@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Runs the blocking checks on staged files.
+dir="$(cd "$(dirname "$0")" && pwd)"
+root="$(cd "$dir/.." && pwd)"
+PY="$(bash "$dir/_python.sh")" || exit 1
+cd "$root" || exit 1
+exec $PY tools/studio.py check --staged
