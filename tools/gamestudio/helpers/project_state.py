@@ -53,9 +53,9 @@ def resolve_code_root(root, cfg):
         return NAME_ROOTS[engine.lower()], "engine.name"
     if ctx.engine_toml.get("code_root"):
         return ctx.engine_toml["code_root"], "engine.toml"
-    present = [d for d in ("src", "Assets", "Source") if d in os.listdir(root)]
-    if len(present) == 1:
-        return present[0], "detected"
+    found = engines.derive_code_root(root)
+    if found:
+        return found, "detected"
     return "", ""
 
 

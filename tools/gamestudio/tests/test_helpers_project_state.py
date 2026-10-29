@@ -21,10 +21,23 @@ class ProjectStateTest(RepoCase):
         self.assertEqual(d["phase_inferred"][1], "concept")
 
     def test_unknown_code_root_is_unknown_not_zero(self):
-        self.with_toml({"src/a.gd": "x\n", "Assets/b.cs": "y\n"})
+        self.with_toml({"src/a.gd": "x\n", "Assets/b.cs": "y\n", "ProjectSettings/ProjectVersion.txt": "m_EditorVersion: 6000.3.25f1\n"})
         _, out, _ = self.run_cli("project-state")
         d = {r[0]: r for r in rows(out)}
         self.assertEqual(d["source_files"][1], "unknown")
+
+    def test_src_beside_a_plain_asset_root_is_the_code_root(self):
+        self.with_toml({"src/a.gd": "x\n", "Assets/data/x.json": "{}\n"})
+        _, out, _ = self.run_cli("project-state")
+        d = {r[0]: r for r in rows(out)}
+        self.assertEqual(d["code_root"][1:], ["src", "detected"])
+        self.assertEqual(d["source_files"][1], "1")
+
+    def test_lone_unity_assets_is_the_code_root(self):
+        self.with_toml({"Assets/a.cs": "x\n", "ProjectSettings/ProjectVersion.txt": "m_EditorVersion: 6000.3.25f1\n"})
+        _, out, _ = self.run_cli("project-state")
+        d = {r[0]: r for r in rows(out)}
+        self.assertEqual(d["code_root"][1:], ["Assets", "detected"])
 
     def test_stage_only(self):
         self.with_toml()
