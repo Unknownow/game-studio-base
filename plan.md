@@ -198,10 +198,10 @@ Run the Unity commands in the foreground with a timeout of at least 1500 s. Don'
 - [x] S8 Run the §6 commands 5–7, the Unity ones, which are slow. Then:
 - [x] S9 Make the four commits in §9, in order, on fork `main`. Stage each one by its explicit paths (`git add <paths>`), and che
 - [x] S10 Call `judge` on the fork and fix any blocker or major findings with new commits on the same four-commit plan, amending t
-- [ ] S11 Deliver: push fork `main` to `origin`, `Unknownow/game-studio-unity`. Then poll `gh run list --repo Unknownow/game-studi
-- [ ] S12 Deliver: tag `v0.1.0` on fork `main` HEAD and push the tag (D4). Check with `git ls-remote --exit-code --tags origin v0.
-- [ ] S13 Run `GH_CONFIG_DIR=/tmp/ghcfg-unknownow gh api -X PATCH repos/Unknownow/game-studio-unity -F is_template=true` (D4). Che
-- [ ] S14 `rm -rf /tmp/ghcfg-unknownow` (D5), and confirm the path is gone.
+- [x] S11 Deliver: push fork `main` to `origin`, `Unknownow/game-studio-unity`. Then poll `gh run list --repo Unknownow/game-studi
+- [x] S12 Deliver: tag `v0.1.0` on fork `main` HEAD and push the tag (D4). Check with `git ls-remote --exit-code --tags origin v0.
+- [x] S13 Run `GH_CONFIG_DIR=/tmp/ghcfg-unknownow gh api -X PATCH repos/Unknownow/game-studio-unity -F is_template=true` (D4). Che
+- [x] S14 `rm -rf /tmp/ghcfg-unknownow` (D5), and confirm the path is gone.
 ## For you after the flow
 - S15 Verify: open `D:/personal/game-studio-unity`, or a fresh clone on a case-sensitive checkout, in Unity 6000.3.25f1 — look
 - S16 Verify: create a game repo from the `Unknownow/game-studio-unity` template and run `python tools/studio.py setup` in it 
