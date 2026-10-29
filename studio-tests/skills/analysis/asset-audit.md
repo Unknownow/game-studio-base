@@ -137,7 +137,7 @@ Fixture defaults.
 **Fixture:**
 - `project.toml`: `engine.name: godot`; `design/art/art-bible.md` sets texture budgets
 - `Assets/art/characters/` holds 3 other correctly named textures, within budget and referenced from code
-- `src/enemies/boss.gd` loads `res://assets/art/characters/boss/char_boss_idle_512.png`
+- `src/enemies/boss.gd` loads `res://Assets/art/characters/boss/char_boss_idle_512.png`
 - `Assets/art/characters/boss/` is empty — the file does not exist
 - `design/gdd/enemies.md` also names `char_boss_roar_512.png`, which no code references
 

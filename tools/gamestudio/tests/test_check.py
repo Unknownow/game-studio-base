@@ -62,6 +62,7 @@ class CheckTest(RepoCase):
         code, out, _ = self.check()
         self.assertEqual(code, 1)
         self.assertIn("ERROR data-json Assets/data/b.json", out)
+        self.assertNotIn("legacy-assets", out)
 
     def test_data_json_legacy_lowercase_root(self):
         self.with_toml({"assets/data/b.json": "{bad"})
