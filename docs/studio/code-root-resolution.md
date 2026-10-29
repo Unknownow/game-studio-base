@@ -24,8 +24,8 @@ code. This file is the procedure for applying it.
    `src/`, `Assets/` or `Source/` present means that is the root. Two or more
    present means the project is genuinely undecidable — do not guess. Compare the
    names exactly as the directory listing spells them: on Windows and default
-   macOS an existence test for `Assets/` also succeeds on a lowercase `assets/`,
-   which would make `src/` + `assets/` look ambiguous and a lone `assets/` look
+   macOS an existence test for `Assets/` also succeeds on a lowercase `Assets/`,
+   which would make `src/` + `Assets/` look ambiguous and a lone `Assets/` look
    like Unity.
 4. Otherwise: **unresolved.**
 

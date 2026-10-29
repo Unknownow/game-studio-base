@@ -113,7 +113,7 @@ src/                  # Game source code (default; Unity: Assets/)
   networking/         # Multiplayer code
   ui/                 # UI code
   tools/              # Dev tools
-assets/               # Game assets
+Assets/               # Game assets
   art/                # Sprites, models, textures
   audio/              # Music, SFX
   vfx/                # Particle effects
@@ -1066,7 +1066,7 @@ Guides you through structured performance profiling:
 ### Step 6.2: Balance Analysis
 
 ```
-/balance-check assets/data/combat_damage.json
+/balance-check Assets/data/combat_damage.json
 ```
 
 Analyzes balance data for statistical outliers, broken progression curves,

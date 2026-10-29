@@ -84,7 +84,7 @@ enforced.**
      direction starts from the GDDs alone" — so the gap is visible in the output.
      Carry the gap forward: say so in the audio-director's Step 1 brief, and
      recommend creating a sound bible in Next Steps.
-   - Read existing audio asset lists in `assets/audio/`
+   - Read existing audio asset lists in `Assets/audio/`
    - Read any existing sound design docs for this area
 
 ## How to Delegate
@@ -212,7 +212,7 @@ this does not violate the Collaboration Protocol" — the path is one you named,
 artifact is new under `production/`, `docs/` or `tests/`, and the phase is gated by
 a question to the user. A sub-agent does **not** prompt per write inside those bounds;
 outside them it must ask. **Implementation files** — gameplay-programmer's audio
-integration code, anything under the code root or `assets/` — are outside those
+integration code, anything under the code root or `Assets/` — are outside those
 bounds: the agent returns the files it will create or change, you ask once for the
 set, and it writes after a yes. The **one exception is the final compiled audio design
 document**: the orchestrator already holds every input, so it compiles and writes

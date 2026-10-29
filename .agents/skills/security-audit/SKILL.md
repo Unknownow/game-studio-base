@@ -102,7 +102,7 @@ Scope: {full | network | save | input | quick}
 Engine: {engine.name} {engine.version}, language {engine.language}
 platform.multiplayer: {true | false | unset}    platform.online: {true | false | unset}    Phase 1 answer: {multiplayer | single-player | not asked}
 Code root: {the resolved code root, or "unresolved"}
-Also scan: {assets/data/ and the config files that exist, or "none"}
+Also scan: {Assets/data/ and the config files that exist, or "none"}
 Categories to run, with their checks and grep patterns for this engine:
 {each Phase 3 category this scope runs, copied as written, with the table's row for this engine}
 NOT SOURCEABLE on this engine: {categories, or "none"} — report each NOT ASSESSED; never call it reviewed, verified safe or passed
@@ -180,7 +180,7 @@ Grep for: `recv`, `receive`, `socket`, `rpc`, plus the engine's network API name
 Grep for the engine's input API names (engine step above) and user-facing text fields — check validation.
 
 ### Category 4: Data Exposure
-- Are any API keys, credentials, or secrets hardcoded in the code root or `assets/`?
+- Are any API keys, credentials, or secrets hardcoded in the code root or `Assets/`?
 - Are debug symbols or verbose error messages included in release builds?
 - Does the game log sensitive player data to disk or console?
 - Are any internal file paths or system information exposed to players?

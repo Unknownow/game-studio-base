@@ -20,7 +20,7 @@ job, not a project artifact.
 
 None of the three extends anywhere else. The Collaboration Protocol still governs
 every other write under the code root (`src/`, `Assets/` or `Source/`),
-`design/`, `docs/`, `production/` and `assets/`: ask first, naming the path.
+`design/`, `docs/`, `production/` and `Assets/`: ask first, naming the path.
 Writing a memory is never a substitute for asking, and a memory must never be
 used to record something the user declined to have written.
 

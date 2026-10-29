@@ -9,7 +9,7 @@ exposure, cheat/anti-tamper vectors, and dependencies. It takes a scope
 `engine.name`, `engine.language`, `platform.targets`, `platform.multiplayer` and
 `platform.online` from `project.toml`, and runs the `security-engineer` agent
 with a fixed brief template — only its slots filled: the scope, the engine, the
-`platform.*` values, the resolved code root, `assets/data/` and config files,
+`platform.*` values, the resolved code root, `Assets/data/` and config files,
 the categories and the report path — whose own text tells the agent to rate
 every finding from its severity table and that game type never lowers a
 rating. Grep patterns are chosen per engine from the
@@ -65,7 +65,7 @@ Fixture defaults.
 - `project.toml`: `engine.name: godot`, `engine.language: gdscript`, `platform.multiplayer: false`, `platform.online: false`, `modes.rigor: standard` (so `workflow` resolves to `standard`); `modes.automation` unset (collaborative)
 - `src/` holds the implemented game: 42 `.gd` files across core, gameplay, UI and save systems
 - `src/core/save_system.gd` opens saves with `FileAccess`, verifies a checksum, and bounds-checks every loaded value before use
-- No API keys, secrets, passwords or tokens anywhere in `src/` or `assets/`
+- No API keys, secrets, passwords or tokens anywhere in `src/` or `Assets/`
 - `addons/gdUnit4/` is the only third-party dependency
 
 **Input:** `/security-audit`
@@ -73,7 +73,7 @@ Fixture defaults.
 **Expected behavior:**
 1. No argument → `full` scope
 2. Skill reads engine, language and platform keys from `project.toml`
-3. Skill runs `security-engineer` with the fixed brief template: the scope, Godot/GDScript, `platform.multiplayer: false`, `platform.online: false`, code root `src/`, `assets/data/` and config files, the categories to run, and the report path — nothing added outside the slots
+3. Skill runs `security-engineer` with the fixed brief template: the scope, Godot/GDScript, `platform.multiplayer: false`, `platform.online: false`, code root `src/`, `Assets/data/` and config files, the categories to run, and the report path — nothing added outside the slots
 4. Category 1 uses the Godot pattern list, including the Godot 4 name `FileAccess`; Category 2 is skipped because both platform keys are explicitly `false`, and the Executive Summary names the skip and its reason
 5. Category 6 lists `addons/gdUnit4/` in the Dependency Inventory
 6. Executive Summary shows zero findings at every severity over 42 source files; Release recommendation: **CLEAR TO SHIP**
@@ -171,7 +171,7 @@ Fixture defaults.
 
 **Fixture:**
 - `project.toml`: `engine.name: godot`, `platform.multiplayer: false`, `platform.online: false`
-- `src/` exists but contains no source files; `assets/data/` is empty
+- `src/` exists but contains no source files; `Assets/data/` is empty
 
 **Input:** `/security-audit`
 
@@ -246,7 +246,7 @@ Fixture defaults.
 ## Protocol Compliance
 
 - [ ] Reads `engine.name`, `engine.language` and the `platform.*` keys from `project.toml` before auditing
-- [ ] Runs `security-engineer` with the fixed brief template — only its named slots filled (scope, engine/language, `platform.*` values, the resolved code root, `assets/data/` and config files, the categories, the report path) — and no sentence of the orchestrator's own: no pre-rated finding, no "single-player lowers the stakes"; an unresolved code root makes the code categories NOT ASSESSED, never clean
+- [ ] Runs `security-engineer` with the fixed brief template — only its named slots filled (scope, engine/language, `platform.*` values, the resolved code root, `Assets/data/` and config files, the categories, the report path) — and no sentence of the orchestrator's own: no pre-rated finding, no "single-player lowers the stakes"; an unresolved code root makes the code categories NOT ASSESSED, never clean
 - [ ] Uses the Phase 3 pattern set for the resolved engine; a NOT SOURCEABLE category is NOT ASSESSED and makes CLEAR TO SHIP unreachable
 - [ ] Never treats an absent `platform.multiplayer` / `platform.online` as `false`
 - [ ] Names every skipped category and why in the Executive Summary

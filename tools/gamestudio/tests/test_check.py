@@ -56,12 +56,12 @@ class CheckTest(RepoCase):
         self.assertEqual(self.check()[0], 0)
 
     def test_data_json(self):
-        self.with_toml({"assets/data/a.json": '{"a": 1}'})
+        self.with_toml({"Assets/data/a.json": '{"a": 1}'})
         self.assertEqual(self.check()[0], 0)
-        self.add({"assets/data/b.json": '{"a": 1,}'})
+        self.add({"Assets/data/b.json": '{"a": 1,}'})
         code, out, _ = self.check()
         self.assertEqual(code, 1)
-        self.assertIn("ERROR data-json assets/data/b.json", out)
+        self.assertIn("ERROR data-json Assets/data/b.json", out)
 
     def test_data_json_engine_globs(self):
         self.with_toml({"engine.toml": '[engine]\nname = "x"\ndata_globs = ["Content/**/*.json"]\n', "Content/a/b.json": "{"})

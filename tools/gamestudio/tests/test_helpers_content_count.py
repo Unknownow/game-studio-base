@@ -48,7 +48,7 @@ class ContentCountTest(RepoCase):
         self.assertIn("SKIPPED\tentities\tTroll\tdesign/gdd/troll.md\tdeprecated", out)
 
     def test_found_neutral_and_unity(self):
-        self.add({"assets/data/enemies/orc.json": "{}", "assets/data/items/sword.json": "{}", "assets/data/levels/one.json": "{}"})
+        self.add({"Assets/data/enemies/orc.json": "{}", "Assets/data/items/sword.json": "{}", "Assets/data/levels/one.json": "{}"})
         code, out, _ = self.run_cli("content-count", "found")
         self.assertEqual(code, 0)
         self.assertIn("engine\tnone\tdefault", out)

@@ -213,7 +213,7 @@ User: "Looks good. Implement it."
 Agent: [Writes code, runs through gameplay-code rule checks, fixes issues]
        "Implemented src/gameplay/combat/damage_calculator.cs.
         The gameplay-code rule flagged one issue: multiplier was hardcoded.
-        I moved it to assets/data/combat_config.json.
+        I moved it to Assets/data/combat_config.json.
 
         Would you like me to write tests now, or review the code first?"
 ```
@@ -523,7 +523,7 @@ When a change affects multiple files:
 Agent: "This implementation requires changes to 3 files:
        1. src/gameplay/inventory.cs (core logic)
        2. src/ui/inventory_ui.cs (display)
-       3. assets/data/inventory_config.json (constants)
+       3. Assets/data/inventory_config.json (constants)
 
        Should I:
        A) Show you the code first, then write all 3

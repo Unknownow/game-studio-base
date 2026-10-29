@@ -61,7 +61,7 @@ Story Author — Decomposes game design epics into atomic, testable user stories
 
 **Cannot Touch:**
 - The code root — `src/`, `Assets/` or `Source/` by engine (no game code)
-- `assets/` (no asset modifications)
+- `Assets/` (no asset modifications)
 - Source data files (read-only)
 
 ---

@@ -156,41 +156,41 @@ what has been implemented. Use Glob and Grep to locate files.
 
 **On Unity, content lives under `Assets/`** (compare the case exactly —
 `docs/studio/code-root-resolution.md`), and rarely in a `data/` folder. So on
-Unity every `assets/…` glob below also runs under `Assets/`, without requiring
+Unity every `Assets/…` glob below also runs under `Assets/`, without requiring
 a `data/` segment — for items, `Assets/**/items/**`, `Assets/**/Items/**` and
 `Assets/**/*Item*.asset` — and data files include `.asset` (ScriptableObjects)
 and `.prefab`. Skipping this finds zero items, abilities, quests and dialogue
 on a Unity project and reports them NOT STARTED.
 
 **Levels / Areas / Maps:**
-- Glob `assets/**/*.unity` and the scene file types the engine uses
+- Glob `Assets/**/*.unity` and the scene file types the engine uses
 - Glob the **code root** for scene files (`*.unity` on Unity). Resolve the root per `docs/studio/code-root-resolution.md`. **If the code root is unresolved, report `NOT ASSESSED — code root unresolved` rather than zero hits.**
 - Look for scene files in subdirectories named `levels/`, `areas/`, `maps/`,
   `worlds/`, `stages/`
 - Count unique files that appear to be level/scene definitions (not UI scenes)
 
 **Enemies / Characters / NPCs:**
-- Glob `assets/data/**/enemies/**`, `assets/data/**/characters/**`
+- Glob `Assets/data/**/enemies/**`, `Assets/data/**/characters/**`
 - Glob `<code root>/**/enemies/**`, `<code root>/**/characters/**`
 - Look for `.json`, `.tres`, `.asset`, `.yaml` data files defining entity stats
 - Look for scene/prefab files in character subdirectories
 
 **Items / Equipment / Loot:**
-- Glob `assets/data/**/items/**`, `assets/data/**/equipment/**`,
-  `assets/data/**/loot/**`
+- Glob `Assets/data/**/items/**`, `Assets/data/**/equipment/**`,
+  `Assets/data/**/loot/**`
 - Look for `.json`, `.tres`, `.asset` data files
 
 **Abilities / Skills / Spells:**
-- Glob `assets/data/**/abilities/**`, `assets/data/**/skills/**`,
-  `assets/data/**/spells/**`
+- Glob `Assets/data/**/abilities/**`, `Assets/data/**/skills/**`,
+  `Assets/data/**/spells/**`
 - Look for `.json`, `.tres`, `.asset` data files
 
 **Dialogue / Conversations / Cutscenes:**
-- Glob `assets/**/*.dialogue`, `assets/**/*.csv`, `assets/**/*.ink`
-- Grep for dialogue data files in `assets/data/`
+- Glob `Assets/**/*.dialogue`, `Assets/**/*.csv`, `Assets/**/*.ink`
+- Grep for dialogue data files in `Assets/data/`
 
 **Quests / Missions:**
-- Glob `assets/data/**/quests/**`, `assets/data/**/missions/**`
+- Glob `Assets/data/**/quests/**`, `Assets/data/**/missions/**`
 - Look for `.json`, `.yaml` definition files
 
 **Engine-specific notes (acknowledge in the report):**

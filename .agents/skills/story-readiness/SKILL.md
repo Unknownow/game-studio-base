@@ -179,7 +179,7 @@ lowers READY by itself.
 
 ### Asset References
 
-- [ ] **Assets the story uses exist**: paths under `assets/`, or with `.png`,
+- [ ] **Assets the story uses exist**: paths under `Assets/`, or with `.png`,
   `.jpg`, `.svg`, `.wav`, `.ogg`, `.mp3`, `.glb`, `.gltf`, `.tres`, `.tscn` or
   `.res`, that the story reads or builds on. A file the story says it will create
   (a new scene, a new data file) is not checked. Missing: NEEDS WORK; name the

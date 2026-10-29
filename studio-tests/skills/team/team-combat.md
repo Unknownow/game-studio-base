@@ -24,7 +24,7 @@ verdict COMPLETE / NEEDS WORK / BLOCKED and handoffs to `/code-review`,
 - [ ] Has required frontmatter fields: `name`, `description`
 - [ ] Has ≥2 phase headings (Phase 1 through Phase 6 are all present)
 - [ ] Contains verdict keywords: COMPLETE, NEEDS WORK, BLOCKED
-- [ ] Contains "File Write Protocol" — sub-agent drafts and QA artifacts stay inside the bounded exception, and implementation files (code root, `assets/`) are outside it, asked for once as a set; the one orchestrator write is `design/gdd/[feature].md`, after its own "May I write" ask, because `design/` is outside the exception
+- [ ] Contains "File Write Protocol" — sub-agent drafts and QA artifacts stay inside the bounded exception, and implementation files (code root, `Assets/`) are outside it, asked for once as a set; the one orchestrator write is `design/gdd/[feature].md`, after its own "May I write" ask, because `design/` is outside the exception
 - [ ] Names a concrete destination per phase: `production/combat/[feature]-gdd-draft.md` (the game-designer's draft of `design/gdd/[feature].md`), `docs/architecture/[feature]-sketch.md`, `docs/architecture/[feature]-engine-notes.md`, `production/qa/test-cases/[feature]-cases.md`, `production/qa/bugs/BUG-[NNNN].md`
 - [ ] Defines a phase gate as a decision point the pipeline itself lists, whatever the `automation` mode, and claims no director run at phase gates
 - [ ] Has a next-step handoff at the end (references `/code-review`, `/balance-check`, `/team-polish`)
@@ -78,7 +78,7 @@ Fixture defaults.
 - [ ] Phase 3 agents launched in turn — no sequential dependency between gameplay-programmer, ai-programmer, technical-artist, sound-designer
 - [ ] Engine specialist runs in Phase 2 before Phase 3 begins (output incorporated into architecture)
 - [ ] Each agent prompt names its destination from the path table; no sub-agent writes under `design/`
-- [ ] No implementation file (code root, `assets/`) is written before one ask covering the whole Phase 3 set
+- [ ] No implementation file (code root, `Assets/`) is written before one ask covering the whole Phase 3 set
 - [ ] Nothing is written under `design/` before the Phase 1 "May I write" approval, and the orchestrator's only Write is `design/gdd/parry-riposte.md`
 - [ ] Verdict COMPLETE present in final report
 - [ ] Next steps include `/code-review`, `/balance-check`, `/team-polish`
