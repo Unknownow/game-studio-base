@@ -192,12 +192,12 @@ Run the Unity commands in the foreground with a timeout of at least 1500 s. Don'
 - [x] S2 Call `judge` with `base=origin/main` and focus on "PR #3: asset root renamed to `Assets/`, legacy lowercase read with a 
 - [x] S3 Deliver: merge base PR #3, `Unknownow/game-studio-base`, with a merge commit, and delete the branch (D1). If the gate or
 - [x] S4 Verify base, read-only:
-- [ ] S5 In the fork:
-- [ ] S6 Fix the case on disk.
-- [ ] S7 Run the §6 commands 1–4 from the fork root with Python 3.12. If a check fails because of a fork-owned file, fix that fil
-- [ ] S8 Run the §6 commands 5–7, the Unity ones, which are slow. Then:
-- [ ] S9 Make the four commits in §9, in order, on fork `main`. Stage each one by its explicit paths (`git add <paths>`), and che
-- [ ] S10 Call `judge` on the fork and fix any blocker or major findings with new commits on the same four-commit plan, amending t
+- [x] S5 In the fork:
+- [x] S6 Fix the case on disk.
+- [x] S7 Run the §6 commands 1–4 from the fork root with Python 3.12. If a check fails because of a fork-owned file, fix that fil
+- [x] S8 Run the §6 commands 5–7, the Unity ones, which are slow. Then:
+- [x] S9 Make the four commits in §9, in order, on fork `main`. Stage each one by its explicit paths (`git add <paths>`), and che
+- [x] S10 Call `judge` on the fork and fix any blocker or major findings with new commits on the same four-commit plan, amending t
 - [ ] S11 Deliver: push fork `main` to `origin`, `Unknownow/game-studio-unity`. Then poll `gh run list --repo Unknownow/game-studi
 - [ ] S12 Deliver: tag `v0.1.0` on fork `main` HEAD and push the tag (D4). Check with `git ls-remote --exit-code --tags origin v0.
 - [ ] S13 Run `GH_CONFIG_DIR=/tmp/ghcfg-unknownow gh api -X PATCH repos/Unknownow/game-studio-unity -F is_template=true` (D4). Che

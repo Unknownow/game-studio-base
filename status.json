@@ -1,15 +1,29 @@
 {
   "v": 1,
   "flowId": "20261029-1451-merge-base-pr-3-then-port-and-ship-game-4c65",
-  "rev": 2,
-  "updated": "2026-10-29T07:54:26.784Z",
+  "rev": 3,
+  "updated": "2026-10-29T07:58:39.425Z",
   "title": "Merge base PR #3, then port and ship game-studio-unity v0.1.0",
   "stage": 2,
   "done": [
     "S1",
     "S2",
     "S3",
-    "S4"
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "S10"
+  ],
+  "checkpoints": [
+    {
+      "step": "S12",
+      "stage": 2,
+      "text": "checkpoint S12: tag v0.1.0 created at 866b04382",
+      "ok": true
+    }
   ],
   "reviewBase": {
     "d:/personal/game-studio-base": "b8c6f21d9bb4688e89d4a63400e26e983e34e881",
@@ -20,7 +34,8 @@
       "113d91023e54776ee59274e9fa4c8dfb9b802e7e"
     ],
     "d:/personal/game-studio-unity": [
-      "db02a669c2655bfd285bce15c0f5220d1d1ccfdb"
+      "db02a669c2655bfd285bce15c0f5220d1d1ccfdb",
+      "53a180d765c0b90a5a1e1680fad9345095d07fb8"
     ]
   },
   "judgedMerges": {
@@ -28,6 +43,11 @@
       "pr": "3",
       "tree": "113d91023e54776ee59274e9fa4c8dfb9b802e7e",
       "stage": 1
+    },
+    "d:/personal/game-studio-unity": {
+      "commit": "866b04382d43e8adc3135f0f76598cc9857572da",
+      "tree": "53a180d765c0b90a5a1e1680fad9345095d07fb8",
+      "stage": 2
     }
   },
   "repos": [
