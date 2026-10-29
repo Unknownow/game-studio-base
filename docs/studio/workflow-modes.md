@@ -108,7 +108,7 @@ says so.
 > advisory. When in doubt about an ADR's layer, treat it as critical (fail safe
 > toward requiring it).
 
-`modes.workflow` reads via **`resolve_config --keys workflow`** (or
+`modes.workflow` reads via **`python tools/studio.py config --keys workflow`** (or
 `resolve_setting modes.workflow`), which applies the whole chain including the
 `rigor` expansion. Do **not** use `get_effective_yaml_key modes.workflow`: it
 reads the two YAML files only, so on a project that sets `modes.rigor` and not

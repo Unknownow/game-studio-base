@@ -377,7 +377,7 @@ nothing; ask again in plain text and wait (`docs/studio/automation-modes.md`).
 - **Descriptions**: 1 sentence summarizing the approach and key trade-off
 - **Recommended**: Add "(Recommended)" to your preferred option's label
 - **Previews**: Use `markdown` field for comparing code structures or formulas
-- **Multi-select**: Use `multiSelect: true` when choices aren't mutually exclusive
+- **Multi-select**: Use multiple selections allowed when choices aren't mutually exclusive
 
 ### Example — Multi-Question Batch (Clarifying Questions)
 
