@@ -61,7 +61,8 @@ See `docs/studio/COLLABORATIVE-DESIGN-PRINCIPLE.md` for the full protocol and ex
 
 Eight core skills run at the default `minimal` rigor: `start`, `help`, `setup-engine`, `brainstorm`,
 `create-stories`, `dev-story`, `story-done`, `settings`. Every skill works at any rigor; rigor changes
-what is required, not what is allowed. List them with `ls .agents/skills`. A skill is a numbered
+what is required, not what is allowed. There are 75 skills; `docs/studio/skills-reference.md` lists
+them by phase. A skill is a numbered
 checklist: follow its phases in order, copy its checklist and tick it as you go, and end with the
 verdict it names. A skill's `references/` files are read only when the skill says so.
 
@@ -70,7 +71,8 @@ verdict it names. A skill's `references/` files are read only when the skill say
 A role (`roles/<name>.md`) is a perspective with a domain, a tier and a limit on what it may do
 (`can:`). When a skill says **Act as `<role>`**, read the role file and do that step in that role. A
 director gate (`gates/<id>.md`) is a review a director role gives at a fixed point; which gates run
-depends on `review_mode` (`docs/studio/director-gates.md`). If your tool can run sub-agents you may
+depends on `review_mode` (`docs/studio/director-gates.md`). There are 34 roles and 28 gates;
+`docs/studio/agent-roster.md` lists the roles. If your tool can run sub-agents you may
 delegate a role step to one; otherwise do it yourself, in turn.
 
 ## Rules
@@ -121,6 +123,9 @@ Run from the project root. `python tools/studio.py --help` lists all of them.
 | `python tools/studio.py upstream-diff --clone <ccgs checkout> --to <tag>` | map upstream changes to this repo |
 | `python tools/studio.py claude-sync` | generate `.claude/` for Claude Code |
 
-Helper commands used by skills (`story-facts`, `story-status`, `md-section`, `session-state`,
-`project-state`, `set-stage`, `config-set`, `adr-status`, `artifact-check`, `project-coherence`,
-`review-receipts`, and more) print tab-separated observations, never verdicts. Each has `--help`.
+Helper commands used by skills print tab-separated observations, never verdicts. Each has `--help`:
+`adr-dep-graph`, `adr-status`, `agent-check`, `artifact-check`, `asset-scan`, `bug-stats`, `code-markers`,
+`config-set`, `content-count`, `debt-register`, `flaky-stats`, `gdd-structure-check`, `inputs-check`,
+`md-section`, `plan-math`, `project-coherence`, `project-state`, `registry`, `review-receipts`,
+`review-scope`, `rotate-session-state`, `session-state`, `set-stage`, `skill-lint`, `story-facts`,
+`story-status`, `test-run`, `test-scaffold`.

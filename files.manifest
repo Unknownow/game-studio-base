@@ -11,6 +11,7 @@ gates/**
 rules/**
 templates/**
 docs/studio/**
+docs/AGENTS.md
 tools/**
 hooks/**
 studio-tests/**
