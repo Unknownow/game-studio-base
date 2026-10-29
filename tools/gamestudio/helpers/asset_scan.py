@@ -16,7 +16,7 @@ dimensions, file sizes against the budgets you pass, and audio sample rates wher
 Observations, not a verdict. A check that did not run says so in a `check` row and its hits are `-`,
 never 0: a scan that measured nothing is not a scan that found nothing.
   --engine E          unity or none (default: engine.name from project.toml; anything but unity uses
-                      the neutral Assets/ layout)
+                      the neutral Assets/ layout; an old lowercase assets/ is read when there is no Assets/)
   --category C        keep one category: in the neutral layout a folder of Assets/ (art, audio, vfx,
                       shaders or data); on unity the first folder under Assets/ (any case)
   --budget KEY=SIZE   a size budget in bytes, or with a K (1024) or M (1048576) suffix. KEY is `all`, a
@@ -207,12 +207,18 @@ def main(root, argv):
         sys.stderr.write("asset-scan: --category takes art, audio, vfx, shaders or data, got %s (try --help)\n" % catf)
         return 2
     rootdir = "Assets"
+    top = os.listdir(root)
+    legacy = eng == "none" and "Assets" not in top and "assets" in top
+    if legacy:
+        rootdir = "assets"
     print("engine\t%s\t%s" % (eng, esrc))
     if rootdir not in os.listdir(root) or not os.path.isdir(os.path.join(root, rootdir)):
         print("root\t%s\tabsent" % rootdir)
         sys.stderr.write("asset-scan: %s/ does not exist; nothing was scanned\n" % rootdir)
         return 4
     print("root\t%s\tpresent" % rootdir)
+    if legacy:
+        sys.stderr.write("asset-scan: warning: assets/ is the old asset root; rename it to Assets/\n")
     allf = []
     for dp, dn, fn in os.walk(os.path.join(root, rootdir)):
         for f in fn:

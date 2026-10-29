@@ -29,6 +29,14 @@ class AssetScanTest(RepoCase):
         self.assertIn("hits\torphan\t-", lines)
         self.assertTrue(any(l.startswith("FILE\tAssets/art/ok_tile.png\tart\ttexture\t") for l in lines))
 
+    def test_legacy_lowercase_root(self):
+        self.add({"assets/art/ok_tile.png": png(64, 64)})
+        code, out, err = self.run_cli("asset-scan", "--files")
+        self.assertEqual(code, 0)
+        self.assertIn("root\tassets\tpresent", out)
+        self.assertIn("FILE\tassets/art/ok_tile.png\t", out)
+        self.assertIn("old asset root", err)
+
     def test_unity_layout_uses_assets_root(self):
         self.add({"Assets/Art/Tile.png": png(64, 64), "Assets/Art/Tile.png.meta": "x", "Assets/Scripts/A.cs": "x"})
         code, out, _ = self.run_cli("asset-scan", "--engine", "unity")

@@ -55,6 +55,14 @@ class ContentCountTest(RepoCase):
         self.assertIn("found\tcharacters\t1", out)
         self.assertIn("found\tlevels\t1", out)
 
+    def test_found_legacy_lowercase_root(self):
+        self.add({"assets/data/enemies/orc.json": "{}"})
+        code, out, err = self.run_cli("content-count", "found")
+        self.assertEqual(code, 0)
+        self.assertIn("root\tassets\tpresent", out)
+        self.assertIn("found\tcharacters\t1", out)
+        self.assertIn("old asset root", err)
+
     def test_found_unity(self):
         self.add({"Assets/Prefabs/Enemies/Orc.prefab": "x", "Assets/Scenes/Levels/Main.unity": "x"})
         code, out, _ = self.run_cli("content-count", "found", "--engine", "unity", "--files")

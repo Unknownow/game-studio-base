@@ -63,6 +63,19 @@ class CheckTest(RepoCase):
         self.assertEqual(code, 1)
         self.assertIn("ERROR data-json Assets/data/b.json", out)
 
+    def test_data_json_legacy_lowercase_root(self):
+        self.with_toml({"assets/data/b.json": "{bad"})
+        code, out, _ = self.check()
+        self.assertEqual(code, 1)
+        self.assertIn("ERROR data-json assets/data/b.json", out)
+        self.assertIn("legacy-assets", out)
+
+    def test_legacy_assets_warns_only(self):
+        self.with_toml({"assets/data/ok.json": "{}"})
+        code, out, _ = self.check()
+        self.assertEqual(code, 0)
+        self.assertIn("legacy-assets", out)
+
     def test_data_json_engine_globs(self):
         self.with_toml({"engine.toml": '[engine]\nname = "x"\ndata_globs = ["Content/**/*.json"]\n', "Content/a/b.json": "{"})
         code, out, _ = self.check()

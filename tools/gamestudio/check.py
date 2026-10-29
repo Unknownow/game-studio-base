@@ -17,7 +17,7 @@ NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 HOOK_RE = re.compile(r"hook: ([a-z0-9-]+/[a-z0-9-]+)")
 HOOK_HEADING_RE = re.compile(r"^## hook: ([a-z0-9-]+/[a-z0-9-]+)\s*$", re.M)
 GAME_OWNED = ["project.toml", "project.local.toml", "design/", "production/", "Assets/", "src/", "tests/",
-              "prototypes/", "Assets/", "ProjectSettings/", "Packages/manifest.json", "UPSTREAM"]
+              "prototypes/", "ProjectSettings/", "Packages/manifest.json", "UPSTREAM"]
 CODE_EXT = (".gd", ".cs", ".cpp", ".cc", ".hpp", ".h", ".c", ".py", ".js", ".ts", ".rs", ".java", ".kt", ".lua")
 HARDCODED_RE = re.compile(r"(damage|health|speed|rate|chance|cost|duration)\s*[:=]\s*[0-9]+")
 TODO_RE = re.compile(r"(TODO|FIXME|HACK)[^(]")
@@ -146,8 +146,12 @@ def check_evidence(report, root, rel, stype):
 
 
 def check_data_json(report, src, globs):
-    patterns = ["Assets/data/**/*.json"] + list(globs)
-    for rel in src.files():
+    patterns = ["Assets/data/**/*.json", "assets/data/**/*.json"] + list(globs)
+    files = list(src.files())
+    if any(rel.startswith("assets/") for rel in files):
+        report.warn("legacy-assets", "assets/",
+                    "rename the asset root assets/ to Assets/ (git mv assets tmp && git mv tmp Assets)")
+    for rel in files:
         if rel.endswith(".json") and match_any(patterns, rel):
             try:
                 json.loads(src.read(rel))
