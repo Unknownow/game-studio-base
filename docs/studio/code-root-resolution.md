@@ -11,11 +11,10 @@ code. This file is the procedure for applying it.
 
 | `engine.name` | Code root | Why it cannot be `src/` |
 |---|---|---|
-| Godot | `src/` | No constraint; Godot loads from `res://` anywhere under the project root |
+| Other (default) | `src/` | No constraint |
 | Unity | `Assets/` | Unity compiles **only** `Assets/` and `Packages/` |
-| Unreal | `Source/<Module>/` | UnrealBuildTool discovers modules under `Source/`; content lives in `Content/` |
 
-`src/` is the **Godot row of that table, not a universal path.**
+`src/` is the **default row of that table, not a universal path.**
 
 ## Resolution order
 
@@ -25,7 +24,7 @@ code. This file is the procedure for applying it.
    `src/`, `Assets/` or `Source/` present means that is the root. Two or more
    present means the project is genuinely undecidable — do not guess. Compare the
    names exactly as the directory listing spells them: on Windows and default
-   macOS an existence test for `Assets/` also succeeds on Godot's own `assets/`,
+   macOS an existence test for `Assets/` also succeeds on a lowercase `assets/`,
    which would make `src/` + `assets/` look ambiguous and a lone `assets/` look
    like Unity.
 4. Otherwise: **unresolved.**
@@ -64,4 +63,4 @@ write to the wrong directory.
 Where a skill says `src/`, read it as *the code root* and substitute the table
 above. Where a skill greps, glob the resolved root. Where a skill writes,
 write under the resolved root and use the engine's own conventions beneath it
-(`Assets/Scripts/<System>/` on Unity, `Source/<Module>/<System>/` on Unreal).
+(`Assets/Scripts/<System>/` on Unity).

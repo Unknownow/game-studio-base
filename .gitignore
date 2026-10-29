@@ -35,7 +35,7 @@ builds/
 dist/
 out/
 
-# === Engine folders ===
+# === Engine folders (generated) ===
 Library/
 Temp/
 Logs/
@@ -45,3 +45,18 @@ Build/
 Builds/
 *.csproj
 *.sln
+*.slnx
+*.user
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+.vs/
+.idea/
+MemoryCaptures/
+Recordings/
+ExportedObj/
+.utmp/

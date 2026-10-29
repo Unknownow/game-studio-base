@@ -3,7 +3,9 @@ import shutil
 import tempfile
 import unittest
 
-from ._util import RepoCase, git, write_files
+from gamestudio.upstream import classify, load_maps
+
+from ._util import REPO, RepoCase, git, write_files
 
 
 class UpstreamTest(RepoCase):
@@ -62,6 +64,27 @@ reason = "claude-only: no event"
 
 
 CCGS_CLONE = "D:/scratch/ccgs-v1.2.0"
+
+
+class ClassifyPrecedenceTest(unittest.TestCase):
+    def test_engine_layer_ignore_yields_to_map(self):
+        maps = [{"from": "a/**", "to": "b/", "_layer": True}, {"from": "c/**", "to": "d/", "_layer": True}]
+        ignores = [{"path": "a/**", "reason": "engine-layer: unity"}, {"path": "c/**", "reason": "other-engine: godot"}]
+        self.assertEqual(classify(maps, ignores, "a/x.md"), "-> b/x.md")
+        self.assertTrue(classify(maps, ignores, "c/x.md").startswith("IGNORED"))
+        self.assertTrue(classify([], ignores, "a/x.md").startswith("IGNORED (engine-layer"))
+
+    def test_base_wildcard_map_does_not_beat_engine_layer_ignore(self):
+        maps = [{"from": "x/**", "to": "y/"}, {"from": "x/z.md", "to": "Z.md", "_layer": True}]
+        ignores = [{"path": "x/q.md", "reason": "engine-layer: unity"}]
+        self.assertTrue(classify(maps, ignores, "x/q.md").startswith("IGNORED (engine-layer"))
+        self.assertEqual(classify(maps, ignores, "x/z.md"), "-> Z.md")
+        self.assertEqual(classify(maps, ignores, "x/o.md"), "-> y/o.md")
+
+    def test_real_base_engine_layer_paths_stay_ignored(self):
+        maps, ignores, _, _ = load_maps(REPO)
+        for p in (".claude/skills/dev-story/references/engine-checks.md", "studio-tests/agents/engine/unity/x.md"):
+            self.assertTrue(classify(maps, ignores, p).startswith("IGNORED (engine-layer"), p)
 
 
 class RealCoverageTest(unittest.TestCase):

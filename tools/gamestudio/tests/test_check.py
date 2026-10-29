@@ -162,6 +162,18 @@ class CheckTest(RepoCase):
         self.add({"ENGINE.md": "---\nengine: x\n---\n\n## hook: demo/point\n"})
         self.assertEqual(self.check()[0], 0)
 
+    def test_engine_hooks_role_reference(self):
+        files = skill()
+        files["roles/r.md"] = "---\nname: r\n---\nStep `hook: r/point` here.\n"
+        self.with_toml(files)
+        self.add({"ENGINE.md": "---\nengine: x\n---\n\n## hook: r/point\n"})
+        code, out, _ = self.check()
+        self.assertNotIn("engine-hooks", out)
+        self.add({"ENGINE.md": "---\nengine: x\n---\n\n## hook: other/thing\n"})
+        code, out, _ = self.check()
+        self.assertEqual(code, 1)
+        self.assertIn("ERROR engine-hooks roles/r.md", out)
+
     def test_manifest_game_owned(self):
         self.with_toml({"files.manifest": "# m\nAGENTS.md\n"})
         self.assertEqual(self.check()[0], 0)
