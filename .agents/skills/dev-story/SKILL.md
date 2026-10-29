@@ -1,6 +1,7 @@
 ---
 name: dev-story
 description: "Implements one story in code with tests, following its ADRs. Use when the user says to build, implement or start working on a story. Not for checking readiness beforehand or closing the story after."
+disable-model-invocation: true
 metadata:
   upstream: .claude/skills/dev-story/SKILL.md
   argument-hint: "[story-path]"

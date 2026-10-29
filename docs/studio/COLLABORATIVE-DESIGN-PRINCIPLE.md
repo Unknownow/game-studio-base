@@ -182,7 +182,7 @@ Agent: [Writes file]
 ```
 ❌ WRONG:
 User: "Implement damage calculation"
-Agent: [Writes src/gameplay/combat/damage_calculator.gd]
+Agent: [Writes src/gameplay/combat/damage_calculator.cs]
 Agent: "Implemented!"
 
 ✅ RIGHT:
@@ -211,7 +211,7 @@ Agent: "Got it. Here's the proposed architecture:
 User: "Looks good. Implement it."
 
 Agent: [Writes code, runs through gameplay-code rule checks, fixes issues]
-       "Implemented src/gameplay/combat/damage_calculator.gd.
+       "Implemented src/gameplay/combat/damage_calculator.cs.
         The gameplay-code rule flagged one issue: multiplier was hardcoded.
         I moved it to assets/data/combat_config.json.
 
@@ -377,7 +377,7 @@ nothing; ask again in plain text and wait (`docs/studio/automation-modes.md`).
 - **Descriptions**: 1 sentence summarizing the approach and key trade-off
 - **Recommended**: Add "(Recommended)" to your preferred option's label
 - **Previews**: Use `markdown` field for comparing code structures or formulas
-- **Multi-select**: Use `multiSelect: true` when choices aren't mutually exclusive
+- **Multi-select**: Use multiple selections allowed when choices aren't mutually exclusive
 
 ### Example — Multi-Question Batch (Clarifying Questions)
 
@@ -521,8 +521,8 @@ When a change affects multiple files:
 
 ```
 Agent: "This implementation requires changes to 3 files:
-       1. src/gameplay/inventory.gd (core logic)
-       2. src/ui/inventory_ui.gd (display)
+       1. src/gameplay/inventory.cs (core logic)
+       2. src/ui/inventory_ui.cs (display)
        3. assets/data/inventory_config.json (constants)
 
        Should I:

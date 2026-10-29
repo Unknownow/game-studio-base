@@ -57,8 +57,8 @@ Pre-Upgrade Audit: [engine] [old-version] → [new-version]
 Files requiring changes:
   File                              | Deprecated API Found       | Effort
   --------------------------------- | -------------------------- | ------
-  src/gameplay/player_movement.gd   | old_api_name               | Low
-  src/ui/hud.gd                     | removed_node_type          | Medium
+  src/gameplay/player_movement.cs   | old_api_name               | Low
+  src/ui/hud.cs                     | removed_node_type          | Medium
 
 Breaking changes to watch for:
   - [change description from migration guide]

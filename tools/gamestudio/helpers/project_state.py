@@ -45,6 +45,20 @@ def stage_rows(cfg):
     _util.row("phase", PHASES.get(valid, ""), "stage" if valid else "unset")
 
 
+def resolve_code_root(root, cfg):
+    """(code_root, source) for the project; ("", "") when it cannot be resolved."""
+    ctx = engines.Ctx(root, cfg)
+    engine = cfg.value("engine.name") or ""
+    if engine and engine.lower() in NAME_ROOTS:
+        return NAME_ROOTS[engine.lower()], "engine.name"
+    if ctx.engine_toml.get("code_root"):
+        return ctx.engine_toml["code_root"], "engine.toml"
+    present = [d for d in ("src", "Assets", "Source") if d in os.listdir(root)]
+    if len(present) == 1:
+        return present[0], "detected"
+    return "", ""
+
+
 def main(root, argv):
     r, rest = _util.split_root(argv)
     if r:
@@ -63,18 +77,9 @@ def main(root, argv):
     if "--stage" in rest:
         stage_rows(cfg)
         return 0
-    ctx = engines.Ctx(root, cfg)
     engine = cfg.value("engine.name") or ""
     _, esrc = cfg.get("engine.name")
-    code_root, csrc = "", ""
-    if engine and engine.lower() in NAME_ROOTS:
-        code_root, csrc = NAME_ROOTS[engine.lower()], "engine.name"
-    if not code_root and ctx.engine_toml.get("code_root"):
-        code_root, csrc = ctx.engine_toml["code_root"], "engine.toml"
-    if not code_root:
-        present = [d for d in ("src", "Assets", "Source") if d in os.listdir(root)]
-        if len(present) == 1:
-            code_root, csrc = present[0], "detected"
+    code_root, csrc = resolve_code_root(root, cfg)
     if code_root:
         n = 0
         for dirpath, dirnames, filenames in os.walk(os.path.join(root, code_root)):

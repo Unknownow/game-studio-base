@@ -19,13 +19,17 @@ class Ctx(object):
         return str(v).lower() if v else ""
 
 
-def load_plugin(ctx):
-    name = ctx.engine_name()
+def load_by_name(name):
+    name = (name or "").lower()
     if not name or not name.replace("_", "").isalnum():
         return None
     if not os.path.exists(os.path.join(_HERE, name + ".py")):
         return None
     return importlib.import_module("gamestudio.engines." + name)
+
+
+def load_plugin(ctx):
+    return load_by_name(ctx.engine_name())
 
 
 def call(plugin, fn, ctx, *args, default=None):

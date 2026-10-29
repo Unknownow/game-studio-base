@@ -149,7 +149,7 @@ a question. The configured list lives at
 the categories actually listed in `modes.automation_always_ask` — the three
 defaults above, unless the project overrides them — interrupt an `autonomous`
 run. The other rows do nothing until a project opts into them. Read the resolved
-list with `resolve_config` rather than assuming a row here is active. Treating a
+list with `python tools/studio.py config` rather than assuming a row here is active. Treating a
 category the project never configured, such as `architecture_decisions`, as
 active reports rule violations the project never asked for.
 
@@ -225,7 +225,7 @@ These rules keep autonomous logs consistent across runs:
   framing/options decisions (which approach, which formula, which edge
   cases) are usually the most informative entries; do not log only the
   rote "approve this section" steps.
-- **Collapse a single multi-tab widget into ONE entry.** List each tab's
+- **Collapse a single multi-question widget into ONE entry.** List each tab's
   choice under **Chosen** rather than emitting one entry per tab.
 - **Do NOT log conversational answers the model synthesizes for itself**
   (e.g. internal Q&A while drafting a section) — only log what would have

@@ -9,7 +9,7 @@ role: art-director
 
 Role: `art-director` | Model tier: session (inherit) | Domain: Visual identity, art bible, visual production readiness
 
-**Trigger**: After game pillars are locked (brainstorm Phase 4), in parallel with CD-PILLARS
+**Trigger**: After game pillars are locked (brainstorm Phase 4), in turn with CD-PILLARS
 
 **Context to pass**:
 - Game concept (elevator pitch, core fantasy, unique hook)

@@ -1,6 +1,7 @@
 ---
 name: story-done
 description: "Closes a finished story: verifies each acceptance criterion, checks for design or ADR deviations and updates its status. Use when the user says a story is done, finished or ready to close."
+disable-model-invocation: true
 metadata:
   upstream: .claude/skills/story-done/SKILL.md
   argument-hint: "[story-file-path] [--review full|lean|solo]"

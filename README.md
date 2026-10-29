@@ -20,7 +20,7 @@ It works with pi, Codex, Cursor, Claude Code or plain editor and terminal. It is
 ## Layout
 
 - `AGENTS.md`: the entry point every agent reads.
-- `.agents/skills/<name>/SKILL.md`: skills. Eight core skills are on at the default `minimal` rigor: `start`, `help`, `setup-engine`, `brainstorm`, `create-stories`, `dev-story`, `story-done`, `settings`.
+- `.agents/skills/<name>/SKILL.md`: skills. 75 skills in all; eight core skills are on at the default `minimal` rigor: `start`, `help`, `setup-engine`, `brainstorm`, `create-stories`, `dev-story`, `story-done`, `settings`.
 - `roles/`, `gates/`, `rules/`, `templates/`, `docs/studio/`: roles, review gates, rules, document templates and reference docs.
 - `project.toml`: project settings. `project.local.toml` (not committed) holds your own overrides.
 - `tools/studio.py`: the command line. Run `python tools/studio.py --help`.
