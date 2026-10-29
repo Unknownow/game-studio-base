@@ -51,7 +51,6 @@ production/qa/
 
 ## Test Naming
 
-Names follow the engine's language (`rules/test-standards.md`):
 Follow the engine's test naming convention, as `rules/test-standards.md` and the engine step below give it, for the file, the class or suite, and the test function. Names say the scenario and the expected result.
 
 ## Story Type → Test Evidence
