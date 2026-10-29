@@ -1,0 +1,25 @@
+{
+  "v": 1,
+  "flowId": "20261029-1451-merge-base-pr-3-then-port-and-ship-game-4c65",
+  "rev": 1,
+  "updated": "2026-10-29T07:51:36.527Z",
+  "title": "Merge base PR #3, then port and ship game-studio-unity v0.1.0",
+  "stage": 1,
+  "done": [],
+  "reviewBase": {
+    "d:/personal/game-studio-base": "2dcc797853495e136d92a289961af448888074aa",
+    "d:/personal/game-studio-unity": "48ccc4c2946036f07fe8d238c5de68d445dc468a"
+  },
+  "repos": [
+    {
+      "branch": "fix/assets-root-and-layer-tests",
+      "remote": "github-personal/Unknownow/game-studio-base",
+      "primary": true
+    },
+    {
+      "branch": "main",
+      "remote": "github-personal/Unknownow/game-studio-unity",
+      "primary": false
+    }
+  ]
+}
