@@ -188,10 +188,10 @@ Run the Unity commands in the foreground with a timeout of at least 1500 s. Don'
 
 <!-- pi-workflow:status -->
 ## Checklist
-- [ ] S1 In base, `git fetch origin`. Confirm that HEAD is `2dcc797`, the working tree is clean apart from the untracked `assets/
-- [ ] S2 Call `judge` with `base=origin/main` and focus on "PR #3: asset root renamed to `Assets/`, legacy lowercase read with a 
-- [ ] S3 Deliver: merge base PR #3, `Unknownow/game-studio-base`, with a merge commit, and delete the branch (D1). If the gate or
-- [ ] S4 Verify base, read-only:
+- [x] S1 In base, `git fetch origin`. Confirm that HEAD is `2dcc797`, the working tree is clean apart from the untracked `assets/
+- [x] S2 Call `judge` with `base=origin/main` and focus on "PR #3: asset root renamed to `Assets/`, legacy lowercase read with a 
+- [x] S3 Deliver: merge base PR #3, `Unknownow/game-studio-base`, with a merge commit, and delete the branch (D1). If the gate or
+- [x] S4 Verify base, read-only:
 - [ ] S5 In the fork:
 - [ ] S6 Fix the case on disk.
 - [ ] S7 Run the §6 commands 1–4 from the fork root with Python 3.12. If a check fails because of a fork-owned file, fix that fil
