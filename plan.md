@@ -205,3 +205,5 @@ Run the Unity commands in the foreground with a timeout of at least 1500 s. Don'
 ## For you after the flow
 - S15 Verify: open `D:/personal/game-studio-unity`, or a fresh clone on a case-sensitive checkout, in Unity 6000.3.25f1 — look
 - S16 Verify: create a game repo from the `Unknownow/game-studio-unity` template and run `python tools/studio.py setup` in it 
+## Outcome
+2026-10-29T07:59:14.514Z — ok: stage 1: game-studio-unity: main, 0 commits since the review base; stage 2: checkpoint S12: tag v0.1.0 created at 866b04382; game-studio-unity: main, 12 commits since the review base · 2 human check(s) for you (see the card)
