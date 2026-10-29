@@ -242,5 +242,51 @@ class CheckTest(RepoCase):
         self.assertIn("skill 'tech-debt' does not exist", out)
 
 
+    def lead_with_skill(self):
+        files = skill("tech-debt")
+        files["roles/lead.md"] = "---\nname: lead\ndescription: x\ntier: inherit\ncan: [read]\nskills: [tech-debt]\n---\n"
+        self.with_toml(files)
+        self.git_init()
+        git(self.root, "add", "-A")
+        git(self.root, "commit", "-q", "-m", "x")
+
+    def test_staged_move_out_of_skills_reruns_role_check(self):
+        self.lead_with_skill()
+        os.makedirs(os.path.join(self.root, "archive"))
+        git(self.root, "mv", ".agents/skills/tech-debt", "archive/tech-debt")
+        code, out, _ = self.check("--staged")
+        self.assertEqual(code, 1)
+        self.assertIn("skill 'tech-debt' does not exist", out)
+
+    def test_staged_cached_removal_uses_index(self):
+        self.lead_with_skill()
+        git(self.root, "rm", "-q", "-r", "--cached", ".agents/skills/tech-debt")
+        self.assertTrue(os.path.exists(os.path.join(self.root, ".agents/skills/tech-debt/SKILL.md")))
+        code, out, _ = self.check("--staged")
+        self.assertEqual(code, 1)
+        self.assertIn("skill 'tech-debt' does not exist", out)
+
+    def test_staged_ignores_untracked_bad_role(self):
+        self.lead_with_skill()
+        self.add({"roles/bad.md": "---\nname: bad\ndescription: x\ntier: max\ncan: [read]\n---\n"})
+        self.add(skill("tech-debt", desc="Changed description. Use when asked."))
+        git(self.root, "add", ".agents/skills/tech-debt/SKILL.md")
+        code, out, _ = self.check("--staged")
+        self.assertEqual(code, 0, out)
+        self.assertNotIn("bad.md", out)
+
+    def test_skill_lint_advice(self):
+        self.with_toml({".agents/skills/plain/SKILL.md": "---\nname: plain\ndescription: Does a thing.\n---\n\nJust prose with no steps.\n"})
+        code, out, _ = self.check()
+        self.assertEqual(code, 0)
+        self.assertIn("WARN skill-lint .agents/skills/plain/SKILL.md: no_steps", out)
+
+    def test_skill_lint_accepts_phase_headings(self):
+        self.with_toml({".agents/skills/phased/SKILL.md": "---\nname: phased\ndescription: Does a thing.\n---\n\n## Phase 1: A\n\ntext\n\n## Phase 2: B\n\ntext\n"})
+        code, out, _ = self.check()
+        self.assertEqual(code, 0)
+        self.assertNotIn("skill-lint", out)
+
+
 if __name__ == "__main__":
     unittest.main()

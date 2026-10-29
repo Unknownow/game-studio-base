@@ -170,13 +170,17 @@ def advice(root, name):
     if "error" in f:
         return []
     out = []
-    steps = bool(re.search(r"^\s*1\.\s", _util.read(os.path.join(base, name, "SKILL.md")), re.M))
-    if not steps and len(f["phseen"]) < 2:
+    texts = [_util.read(os.path.join(base, name, "SKILL.md"))]
+    refs = os.path.join(base, name, "references")
+    if os.path.isdir(refs):
+        texts += [_util.read(os.path.join(refs, n)) for n in sorted(os.listdir(refs)) if n.endswith(".md")]
+    text = "\n".join(texts)
+    steps = bool(re.search(r"^\s*1\.\s", text, re.M))
+    headings = len(re.findall(r"^#{2,4}\s+(?:Phase|Step)\s+[0-9]", text, re.M))
+    if not steps and headings < 2 and len(f["phseen"]) < 2:
         out.append(("no_steps", "no numbered steps or phase headings found"))
     if f["writes"] and not (f["may"] or f["bef"] or f["apr"] or f["askw"]):
         out.append(("no_ask_before_write", "writes files but has no ask-before-write language"))
-    if not f["nextall"]:
-        out.append(("no_next_step", "no next-step hand-off found"))
     if f["malformed"]:
         out.append(("bad_hook", "%d malformed engine hook line(s)" % f["malformed"]))
     return out

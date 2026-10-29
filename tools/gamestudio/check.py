@@ -7,6 +7,7 @@ import tomllib
 from . import config as cfgmod
 from . import engines, frontmatter
 from .common import Report, git, match_any, read_text, walk
+from .helpers import skill_lint
 
 STORY_TYPES = ["Logic", "Integration", "Visual/Feel", "UI", "Config/Data"]
 SKILL_KEYS = {"name", "description", "license", "compatibility", "metadata", "disable-model-invocation"}
@@ -45,6 +46,9 @@ class Source(object):
                 if not paths:
                     break
                 rel = paths[-1].replace("\\", "/")
+                if st[0] in "RC":
+                    # The old path counts too: moving a skill away changes what depends on it.
+                    self._deleted.append(paths[0].replace("\\", "/"))
                 if st[0] == "D":
                     self._deleted.append(rel)
                 else:
@@ -65,6 +69,22 @@ class Source(object):
             if code == 0:
                 return out.replace("\r\n", "\n")
         return read_text(os.path.join(self.root, rel))
+
+    def _index_files(self, prefix):
+        code, out = git(self.root, "ls-files", "-z", prefix)
+        return sorted(f.replace("\\", "/") for f in out.split("\0") if f) if code == 0 else []
+
+    def role_files(self):
+        """Every role file: from the index when staged, else from the working tree."""
+        names = self._index_files("roles/") if self.staged else self._files
+        return [f for f in names if f.startswith("roles/") and f.endswith(".md") and os.path.basename(f) != "README.md"]
+
+    def skill_exists(self, name):
+        if self.staged:
+            if not hasattr(self, "_index_skills"):
+                self._index_skills = set(self._index_files(".agents/skills/"))
+            return ".agents/skills/%s/SKILL.md" % name in self._index_skills
+        return os.path.isfile(os.path.join(self.root, ".agents", "skills", str(name), "SKILL.md"))
 
     def any(self, *prefixes):
         return any(f == p or f.startswith(p) for f in self._files + self._deleted for p in prefixes)
@@ -157,16 +177,12 @@ def check_skills(report, src):
         for key in data:
             if key not in SKILL_KEYS:
                 report.error("skill-frontmatter", rel, "key %r is not portable (allowed: %s)" % (key, ", ".join(sorted(SKILL_KEYS))))
-        body = src.read(rel)
-        if not re.search(r"^\s*1\.\s", body, re.M):
-            report.warn("skill-lint", rel, "no numbered steps found")
+        for rule, message in skill_lint.advice(src.root, folder):
+            report.warn("skill-lint", rel, "%s: %s" % (rule, message))
 
 
 def check_roles(report, src):
-    root = src.root
-    for rel in src.files():
-        if not (rel.startswith("roles/") and rel.endswith(".md")) or os.path.basename(rel) == "README.md":
-            continue
+    for rel in src.role_files():
         data = _fm(report, src, rel)
         if data is None:
             continue
@@ -183,7 +199,7 @@ def check_roles(report, src):
             report.error("role-frontmatter", rel, "skills must be a list")
         else:
             for s in skills:
-                if not os.path.isfile(os.path.join(root, ".agents", "skills", str(s), "SKILL.md")):
+                if not src.skill_exists(s):
                     report.error("role-frontmatter", rel, "skill %r does not exist" % s)
 
 
@@ -305,8 +321,8 @@ def run_check(root, staged=False):
     if not staged or src.any(".agents/skills/"):
         check_skills(report, src)
     if not staged or src.any("roles/", ".agents/skills/"):
-        # A role names skills, so a staged change to a skill (a deletion, say) re-checks every role.
-        check_roles(report, Source(root, False) if staged and src.any(".agents/skills/") else src)
+        # A role names skills, so a staged change to a skill (a deletion, a move) re-checks every role in the index.
+        check_roles(report, src)
     if not staged or src.any("rules/"):
         check_rules(report, src)
     if not staged or src.any("ENGINE.md", ".agents/skills/", "docs/studio/"):
