@@ -16,7 +16,7 @@ CAN = {"read", "write", "shell", "web", "delegate"}
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 HOOK_RE = re.compile(r"hook: ([a-z0-9-]+/[a-z0-9-]+)")
 HOOK_HEADING_RE = re.compile(r"^## hook: ([a-z0-9-]+/[a-z0-9-]+)\s*$", re.M)
-GAME_OWNED = ["project.toml", "project.local.toml", "design/", "production/", "Assets/", "src/", "tests/",
+GAME_OWNED = ["project.toml", "project.local.toml", "design/", "production/", "Assets/", "assets/", "src/", "tests/",
               "prototypes/", "ProjectSettings/", "Packages/manifest.json", "UPSTREAM"]
 CODE_EXT = (".gd", ".cs", ".cpp", ".cc", ".hpp", ".h", ".c", ".py", ".js", ".ts", ".rs", ".java", ".kt", ".lua")
 HARDCODED_RE = re.compile(r"(damage|health|speed|rate|chance|cost|duration)\s*[:=]\s*[0-9]+")

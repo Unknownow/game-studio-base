@@ -195,6 +195,12 @@ class CheckTest(RepoCase):
         self.assertEqual(code, 1)
         self.assertIn("manifest-game-owned", out)
 
+    def test_manifest_game_owned_legacy_assets(self):
+        self.with_toml({"files.manifest": "# m\nAGENTS.md\nassets/x\n"})
+        code, out, _ = self.check()
+        self.assertEqual(code, 1)
+        self.assertIn("manifest-game-owned", out)
+
     def test_upstream_tag_mismatch_warns(self):
         self.with_toml({"UPSTREAM.toml": '[upstream]\ntag = "v1"\n', "UPSTREAM.unity.toml": '[upstream]\ntag = "v2"\n'})
         code, out, _ = self.check()

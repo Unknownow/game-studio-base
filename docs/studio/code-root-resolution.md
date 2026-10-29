@@ -25,7 +25,7 @@ code. This file is the procedure for applying it.
    counts only when `ProjectSettings/ProjectVersion.txt` exists (a Unity project). Two or more
    present means the project is genuinely undecidable — do not guess. Compare the
    names exactly as the directory listing spells them: on Windows and default
-   macOS an existence test for `Assets/` also succeeds on a lowercase `Assets/`,
+   macOS an existence test for `Assets/` also succeeds on a lowercase `assets/`,
    so the names must be compared as listed. A game made before the rename may
    still have a lowercase `assets/`: it is read with a warning, never as a code root.
 4. Otherwise: **unresolved.**
