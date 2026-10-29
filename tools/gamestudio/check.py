@@ -224,7 +224,7 @@ def check_engine_hooks(report, root):
         return
     headings = set(HOOK_HEADING_RE.findall(read_text(engine_md)))
     used = {}
-    for rel in walk(root, ".agents/skills") + walk(root, "docs/studio"):
+    for rel in walk(root, ".agents/skills") + walk(root, "docs/studio") + walk(root, "roles"):
         if rel.endswith(".md"):
             for h in HOOK_RE.findall(read_text(os.path.join(root, rel))):
                 used.setdefault(h, rel)
@@ -232,7 +232,7 @@ def check_engine_hooks(report, root):
         if h not in headings:
             report.error("engine-hooks", rel, "ENGINE.md has no `## hook: %s` section" % h)
     for h in sorted(headings - set(used)):
-        report.warn("engine-hooks", "ENGINE.md", "section `hook: %s` is not referenced by any skill" % h)
+        report.warn("engine-hooks", "ENGINE.md", "section `hook: %s` is not referenced by any skill, role or studio doc" % h)
 
 
 def manifest_patterns(root):
