@@ -5,6 +5,7 @@ import tomllib
 import unittest
 
 from gamestudio import helpers
+from gamestudio.common import SKIP_DIRS as COMMON_SKIP
 
 from ._util import REPO, STUDIO
 
@@ -14,12 +15,31 @@ import sys
 ADDON_OK = ("README.md", "AGENTS.md", "CLAUDE.md", "docs/studio/settings-guidance.md", "docs/studio/setup-requirements.md", "studio-tests/skills/utility/upstream-sync.md", "docs/studio/WORKFLOW-GUIDE.md", ".agents/skills/upstream-sync/SKILL.md", "tools/gamestudio/claude_sync.py",
             "tools/gamestudio/check.py", "tools/gamestudio/cli.py", "tools/gamestudio/data/claude-deny.json", "UPSTREAM.toml",
             "NOTICE", ".gitignore", ".gitattributes", "hooks/post-merge", "hooks/post-checkout", "hooks/pre-commit")
-SKIP_DIRS = {".git", ".claude", "__pycache__"}
+SKIP_DIRS = set(COMMON_SKIP) | {".git", ".claude", "__pycache__"}
+ENGINES = sorted(f[:-3] for f in os.listdir(os.path.join(REPO, "tools", "gamestudio", "engines")) if f.endswith(".py") and f != "__init__.py")
+
+
+def engine_layer(rel):
+    parts = rel.split("/")
+    for e in ENGINES:
+        if parts[0] == "roles" and parts[-1].startswith(e + "-"):
+            return True
+        if parts[0] == "rules" and len(parts) > 2 and parts[1] == e:
+            return True
+        if parts[:2] == [".agents", "skills"] and len(parts) > 2 and parts[2].startswith(e + "-"):
+            return True
+    return rel.startswith("studio-tests/agents/engine/")
 
 
 def count(sub, pred):
     base = os.path.join(REPO, sub)
-    return sum(1 for dp, dn, fn in os.walk(base) for f in fn if pred(os.path.join(dp, f)))
+    n = 0
+    for dp, dn, fn in os.walk(base):
+        for f in fn:
+            p = os.path.join(dp, f)
+            if not engine_layer(os.path.relpath(p, REPO).replace(os.sep, "/")) and pred(p):
+                n += 1
+    return n
 
 
 class RepoContentTest(unittest.TestCase):
@@ -60,6 +80,26 @@ class RepoContentTest(unittest.TestCase):
                         if bad.search(line) and "upstream: .claude/" not in line:
                             hits.append("%s:%d" % (rel, n))
         self.assertEqual(hits[:10], [], "%d hits" % len(hits))
+
+    def test_no_other_engine_leftovers(self):
+        bad = re.compile(r"[Gg]odot|GDScript|[Uu]nreal|gdshader|Blueprint")
+        allow = {".agents/skills/upstream-sync/SKILL.md"}
+        roots = [".agents", "docs", "roles", "rules", "gates", "templates", "AGENTS.md", "README.md"]
+        hits = []
+        for r in roots:
+            top = os.path.join(REPO, r)
+            walker = [(os.path.dirname(top), [], [os.path.basename(top)])] if os.path.isfile(top) else os.walk(top)
+            for dp, dn, fn in walker:
+                dn[:] = [d for d in dn if d not in SKIP_DIRS and d != "engine-reference"]
+                for f in fn:
+                    rel = os.path.relpath(os.path.join(dp, f), REPO).replace(os.sep, "/")
+                    if rel in allow or engine_layer(rel) or not f.endswith((".md", ".yaml", ".toml")):
+                        continue
+                    with open(os.path.join(dp, f), encoding="utf-8", errors="replace") as fh:
+                        for n, line in enumerate(fh, 1):
+                            if bad.search(line):
+                                hits.append("%s:%d" % (rel, n))
+        self.assertEqual(hits, [])
 
 
 if __name__ == "__main__":
