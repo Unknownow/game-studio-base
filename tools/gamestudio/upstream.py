@@ -15,7 +15,7 @@ def load_maps(root):
         if name == "UPSTREAM.toml" or tag is None:
             tag = up.get("tag") or tag
             repo = up.get("repo") or repo
-        maps.extend(data.get("map", []))
+        maps.extend(dict(m, _layer=name != "UPSTREAM.toml") for m in data.get("map", []))
         ignores.extend(data.get("ignore", []))
     return maps, ignores, tag, repo
 
@@ -30,11 +30,23 @@ def _mapped(entry, path):
 
 
 def classify(maps, ignores, path):
+    def hit(ig):
+        return glob_to_regex(ig["path"]).match(path)
+
+    def layer(ig):
+        return ig.get("reason", "").startswith("engine-layer:")
+
     for ig in ignores:
-        if glob_to_regex(ig["path"]).match(path):
+        if not layer(ig) and hit(ig):
             return "IGNORED (%s)" % ig.get("reason", "")
     for mp in maps:
-        if glob_to_regex(mp["from"]).match(path):
+        if mp.get("_layer") and glob_to_regex(mp["from"]).match(path):
+            return "-> " + _mapped(mp, path)
+    for ig in ignores:
+        if layer(ig) and hit(ig):
+            return "IGNORED (%s)" % ig.get("reason", "")
+    for mp in maps:
+        if not mp.get("_layer") and glob_to_regex(mp["from"]).match(path):
             return "-> " + _mapped(mp, path)
     return "UNMAPPED"
 
