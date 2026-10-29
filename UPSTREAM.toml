@@ -7,12 +7,192 @@ repo = "https://github.com/Donchitos/Claude-Code-Game-Studios"
 tag = "v1.2.0"
 
 [[map]]
-from = ".claude/skills/start/**"
-to = ".agents/skills/start/"
+from = ".claude/skills/adopt/**"
+to = ".agents/skills/adopt/"
+
+[[map]]
+from = ".claude/skills/architecture-decision/**"
+to = ".agents/skills/architecture-decision/"
+
+[[map]]
+from = ".claude/skills/architecture-review/**"
+to = ".agents/skills/architecture-review/"
+
+[[map]]
+from = ".claude/skills/art-bible/**"
+to = ".agents/skills/art-bible/"
+
+[[map]]
+from = ".claude/skills/asset-audit/**"
+to = ".agents/skills/asset-audit/"
+
+[[map]]
+from = ".claude/skills/asset-spec/**"
+to = ".agents/skills/asset-spec/"
+
+[[map]]
+from = ".claude/skills/balance-check/**"
+to = ".agents/skills/balance-check/"
+
+[[map]]
+from = ".claude/skills/brainstorm/**"
+to = ".agents/skills/brainstorm/"
+
+[[map]]
+from = ".claude/skills/bug-report/**"
+to = ".agents/skills/bug-report/"
+
+[[map]]
+from = ".claude/skills/bug-triage/**"
+to = ".agents/skills/bug-triage/"
+
+[[map]]
+from = ".claude/skills/changelog/**"
+to = ".agents/skills/changelog/"
+
+[[map]]
+from = ".claude/skills/code-review/**"
+to = ".agents/skills/code-review/"
+
+[[map]]
+from = ".claude/skills/consistency-check/**"
+to = ".agents/skills/consistency-check/"
+
+[[map]]
+from = ".claude/skills/content-audit/**"
+to = ".agents/skills/content-audit/"
+
+[[map]]
+from = ".claude/skills/create-architecture/**"
+to = ".agents/skills/create-architecture/"
+
+[[map]]
+from = ".claude/skills/create-control-manifest/**"
+to = ".agents/skills/create-control-manifest/"
+
+[[map]]
+from = ".claude/skills/create-epics/**"
+to = ".agents/skills/create-epics/"
+
+[[map]]
+from = ".claude/skills/create-stories/**"
+to = ".agents/skills/create-stories/"
+
+[[map]]
+from = ".claude/skills/day-one-patch/**"
+to = ".agents/skills/day-one-patch/"
+
+[[map]]
+from = ".claude/skills/design-review/**"
+to = ".agents/skills/design-review/"
+
+[[map]]
+from = ".claude/skills/design-system/**"
+to = ".agents/skills/design-system/"
+
+[[map]]
+from = ".claude/skills/dev-story/**"
+to = ".agents/skills/dev-story/"
+
+[[map]]
+from = ".claude/skills/estimate/**"
+to = ".agents/skills/estimate/"
+
+[[map]]
+from = ".claude/skills/gate-check/**"
+to = ".agents/skills/gate-check/"
 
 [[map]]
 from = ".claude/skills/help/**"
 to = ".agents/skills/help/"
+
+[[map]]
+from = ".claude/skills/hotfix/**"
+to = ".agents/skills/hotfix/"
+
+[[map]]
+from = ".claude/skills/launch-checklist/**"
+to = ".agents/skills/launch-checklist/"
+
+[[map]]
+from = ".claude/skills/localize/**"
+to = ".agents/skills/localize/"
+
+[[map]]
+from = ".claude/skills/map-systems/**"
+to = ".agents/skills/map-systems/"
+
+[[map]]
+from = ".claude/skills/milestone-review/**"
+to = ".agents/skills/milestone-review/"
+
+[[map]]
+from = ".claude/skills/onboard/**"
+to = ".agents/skills/onboard/"
+
+[[map]]
+from = ".claude/skills/patch-notes/**"
+to = ".agents/skills/patch-notes/"
+
+[[map]]
+from = ".claude/skills/perf-profile/**"
+to = ".agents/skills/perf-profile/"
+
+[[map]]
+from = ".claude/skills/playtest-report/**"
+to = ".agents/skills/playtest-report/"
+
+[[map]]
+from = ".claude/skills/project-stage-detect/**"
+to = ".agents/skills/project-stage-detect/"
+
+[[map]]
+from = ".claude/skills/propagate-design-change/**"
+to = ".agents/skills/propagate-design-change/"
+
+[[map]]
+from = ".claude/skills/prototype/**"
+to = ".agents/skills/prototype/"
+
+[[map]]
+from = ".claude/skills/qa-plan/**"
+to = ".agents/skills/qa-plan/"
+
+[[map]]
+from = ".claude/skills/quick-design/**"
+to = ".agents/skills/quick-design/"
+
+[[map]]
+from = ".claude/skills/regression-suite/**"
+to = ".agents/skills/regression-suite/"
+
+[[map]]
+from = ".claude/skills/release-checklist/**"
+to = ".agents/skills/release-checklist/"
+
+[[map]]
+from = ".claude/skills/retrospective/**"
+to = ".agents/skills/retrospective/"
+
+[[map]]
+from = ".claude/skills/reverse-document/**"
+to = ".agents/skills/reverse-document/"
+
+[[map]]
+from = ".claude/skills/review-all-gdds/**"
+to = ".agents/skills/review-all-gdds/"
+
+[[map]]
+from = ".claude/skills/scope-check/**"
+to = ".agents/skills/scope-check/"
+
+[[map]]
+from = ".claude/skills/security-audit/**"
+to = ".agents/skills/security-audit/"
+
+[[map]]
+from = ".claude/skills/settings/**"
+to = ".agents/skills/settings/"
 
 [[map]]
 from = ".claude/skills/setup-engine/references/4-claude-md-stack.md"
@@ -27,84 +207,316 @@ from = ".claude/skills/setup-engine/**"
 to = ".agents/skills/setup-engine/"
 
 [[map]]
-from = ".claude/skills/brainstorm/**"
-to = ".agents/skills/brainstorm/"
+from = ".claude/skills/skill-improve/**"
+to = ".agents/skills/skill-improve/"
 
 [[map]]
-from = ".claude/skills/create-stories/**"
-to = ".agents/skills/create-stories/"
+from = ".claude/skills/skill-test/**"
+to = ".agents/skills/skill-test/"
 
 [[map]]
-from = ".claude/skills/dev-story/**"
-to = ".agents/skills/dev-story/"
+from = ".claude/skills/smoke-check/**"
+to = ".agents/skills/smoke-check/"
+
+[[map]]
+from = ".claude/skills/soak-test/**"
+to = ".agents/skills/soak-test/"
+
+[[map]]
+from = ".claude/skills/sprint-plan/**"
+to = ".agents/skills/sprint-plan/"
+
+[[map]]
+from = ".claude/skills/sprint-status/**"
+to = ".agents/skills/sprint-status/"
+
+[[map]]
+from = ".claude/skills/start/**"
+to = ".agents/skills/start/"
 
 [[map]]
 from = ".claude/skills/story-done/**"
 to = ".agents/skills/story-done/"
 
 [[map]]
-from = ".claude/skills/settings/**"
-to = ".agents/skills/settings/"
+from = ".claude/skills/story-readiness/**"
+to = ".agents/skills/story-readiness/"
 
 [[map]]
-from = ".claude/agents/creative-director.md"
-to = "roles/creative-director.md"
+from = ".claude/skills/team-audio/**"
+to = ".agents/skills/team-audio/"
 
 [[map]]
-from = ".claude/agents/art-director.md"
-to = "roles/art-director.md"
+from = ".claude/skills/team-combat/**"
+to = ".agents/skills/team-combat/"
 
 [[map]]
-from = ".claude/agents/technical-director.md"
-to = "roles/technical-director.md"
+from = ".claude/skills/team-level/**"
+to = ".agents/skills/team-level/"
 
 [[map]]
-from = ".claude/agents/producer.md"
-to = "roles/producer.md"
+from = ".claude/skills/team-live-ops/**"
+to = ".agents/skills/team-live-ops/"
 
 [[map]]
-from = ".claude/agents/qa-lead.md"
-to = "roles/qa-lead.md"
+from = ".claude/skills/team-narrative/**"
+to = ".agents/skills/team-narrative/"
 
 [[map]]
-from = ".claude/agents/lead-programmer.md"
-to = "roles/lead-programmer.md"
+from = ".claude/skills/team-polish/**"
+to = ".agents/skills/team-polish/"
 
 [[map]]
-from = ".claude/agents/engine-programmer.md"
-to = "roles/engine-programmer.md"
+from = ".claude/skills/team-qa/**"
+to = ".agents/skills/team-qa/"
 
 [[map]]
-from = ".claude/agents/ui-programmer.md"
-to = "roles/ui-programmer.md"
+from = ".claude/skills/team-release/**"
+to = ".agents/skills/team-release/"
 
 [[map]]
-from = ".claude/agents/gameplay-programmer.md"
-to = "roles/gameplay-programmer.md"
+from = ".claude/skills/team-ui/**"
+to = ".agents/skills/team-ui/"
+
+[[map]]
+from = ".claude/skills/tech-debt/**"
+to = ".agents/skills/tech-debt/"
+
+[[map]]
+from = ".claude/skills/test-evidence-review/**"
+to = ".agents/skills/test-evidence-review/"
+
+[[map]]
+from = ".claude/skills/test-flakiness/**"
+to = ".agents/skills/test-flakiness/"
+
+[[map]]
+from = ".claude/skills/test-helpers/**"
+to = ".agents/skills/test-helpers/"
+
+[[map]]
+from = ".claude/skills/test-setup/**"
+to = ".agents/skills/test-setup/"
+
+[[map]]
+from = ".claude/skills/ux-design/**"
+to = ".agents/skills/ux-design/"
+
+[[map]]
+from = ".claude/skills/ux-review/**"
+to = ".agents/skills/ux-review/"
+
+[[map]]
+from = ".claude/skills/vertical-slice/**"
+to = ".agents/skills/vertical-slice/"
+
+[[map]]
+from = ".claude/agents/accessibility-specialist.md"
+to = "roles/accessibility-specialist.md"
 
 [[map]]
 from = ".claude/agents/ai-programmer.md"
 to = "roles/ai-programmer.md"
 
 [[map]]
+from = ".claude/agents/analytics-engineer.md"
+to = "roles/analytics-engineer.md"
+
+[[map]]
+from = ".claude/agents/art-director.md"
+to = "roles/art-director.md"
+
+[[map]]
+from = ".claude/agents/audio-director.md"
+to = "roles/audio-director.md"
+
+[[map]]
+from = ".claude/agents/community-manager.md"
+to = "roles/community-manager.md"
+
+[[map]]
+from = ".claude/agents/creative-director.md"
+to = "roles/creative-director.md"
+
+[[map]]
+from = ".claude/agents/devops-engineer.md"
+to = "roles/devops-engineer.md"
+
+[[map]]
+from = ".claude/agents/economy-designer.md"
+to = "roles/economy-designer.md"
+
+[[map]]
+from = ".claude/agents/engine-programmer.md"
+to = "roles/engine-programmer.md"
+
+[[map]]
+from = ".claude/agents/game-designer.md"
+to = "roles/game-designer.md"
+
+[[map]]
+from = ".claude/agents/gameplay-programmer.md"
+to = "roles/gameplay-programmer.md"
+
+[[map]]
+from = ".claude/agents/lead-programmer.md"
+to = "roles/lead-programmer.md"
+
+[[map]]
+from = ".claude/agents/level-designer.md"
+to = "roles/level-designer.md"
+
+[[map]]
+from = ".claude/agents/live-ops-designer.md"
+to = "roles/live-ops-designer.md"
+
+[[map]]
+from = ".claude/agents/localization-lead.md"
+to = "roles/localization-lead.md"
+
+[[map]]
+from = ".claude/agents/narrative-director.md"
+to = "roles/narrative-director.md"
+
+[[map]]
 from = ".claude/agents/network-programmer.md"
 to = "roles/network-programmer.md"
 
 [[map]]
-from = ".claude/docs/director-gates/cd-pillars.md"
-to = "gates/cd-pillars.md"
+from = ".claude/agents/performance-analyst.md"
+to = "roles/performance-analyst.md"
+
+[[map]]
+from = ".claude/agents/producer.md"
+to = "roles/producer.md"
+
+[[map]]
+from = ".claude/agents/prototyper.md"
+to = "roles/prototyper.md"
+
+[[map]]
+from = ".claude/agents/qa-lead.md"
+to = "roles/qa-lead.md"
+
+[[map]]
+from = ".claude/agents/qa-tester.md"
+to = "roles/qa-tester.md"
+
+[[map]]
+from = ".claude/agents/release-manager.md"
+to = "roles/release-manager.md"
+
+[[map]]
+from = ".claude/agents/security-engineer.md"
+to = "roles/security-engineer.md"
+
+[[map]]
+from = ".claude/agents/sound-designer.md"
+to = "roles/sound-designer.md"
+
+[[map]]
+from = ".claude/agents/systems-designer.md"
+to = "roles/systems-designer.md"
+
+[[map]]
+from = ".claude/agents/technical-artist.md"
+to = "roles/technical-artist.md"
+
+[[map]]
+from = ".claude/agents/technical-director.md"
+to = "roles/technical-director.md"
+
+[[map]]
+from = ".claude/agents/tools-programmer.md"
+to = "roles/tools-programmer.md"
+
+[[map]]
+from = ".claude/agents/ui-programmer.md"
+to = "roles/ui-programmer.md"
+
+[[map]]
+from = ".claude/agents/ux-designer.md"
+to = "roles/ux-designer.md"
+
+[[map]]
+from = ".claude/agents/world-builder.md"
+to = "roles/world-builder.md"
+
+[[map]]
+from = ".claude/agents/writer.md"
+to = "roles/writer.md"
+
+[[map]]
+from = ".claude/docs/director-gates/ad-art-bible.md"
+to = "gates/ad-art-bible.md"
 
 [[map]]
 from = ".claude/docs/director-gates/ad-concept-visual.md"
 to = "gates/ad-concept-visual.md"
 
 [[map]]
-from = ".claude/docs/director-gates/td-feasibility.md"
-to = "gates/td-feasibility.md"
+from = ".claude/docs/director-gates/ad-phase-gate.md"
+to = "gates/ad-phase-gate.md"
+
+[[map]]
+from = ".claude/docs/director-gates/ad-visual.md"
+to = "gates/ad-visual.md"
+
+[[map]]
+from = ".claude/docs/director-gates/cd-gdd-align.md"
+to = "gates/cd-gdd-align.md"
+
+[[map]]
+from = ".claude/docs/director-gates/cd-narrative.md"
+to = "gates/cd-narrative.md"
+
+[[map]]
+from = ".claude/docs/director-gates/cd-phase-gate.md"
+to = "gates/cd-phase-gate.md"
+
+[[map]]
+from = ".claude/docs/director-gates/cd-pillars.md"
+to = "gates/cd-pillars.md"
+
+[[map]]
+from = ".claude/docs/director-gates/cd-playtest.md"
+to = "gates/cd-playtest.md"
+
+[[map]]
+from = ".claude/docs/director-gates/cd-systems.md"
+to = "gates/cd-systems.md"
+
+[[map]]
+from = ".claude/docs/director-gates/lp-code-review.md"
+to = "gates/lp-code-review.md"
+
+[[map]]
+from = ".claude/docs/director-gates/lp-feasibility.md"
+to = "gates/lp-feasibility.md"
+
+[[map]]
+from = ".claude/docs/director-gates/nd-consistency.md"
+to = "gates/nd-consistency.md"
+
+[[map]]
+from = ".claude/docs/director-gates/pr-epic.md"
+to = "gates/pr-epic.md"
+
+[[map]]
+from = ".claude/docs/director-gates/pr-milestone.md"
+to = "gates/pr-milestone.md"
+
+[[map]]
+from = ".claude/docs/director-gates/pr-phase-gate.md"
+to = "gates/pr-phase-gate.md"
 
 [[map]]
 from = ".claude/docs/director-gates/pr-scope.md"
 to = "gates/pr-scope.md"
+
+[[map]]
+from = ".claude/docs/director-gates/pr-sprint.md"
+to = "gates/pr-sprint.md"
 
 [[map]]
 from = ".claude/docs/director-gates/ql-story-ready.md"
@@ -115,12 +527,76 @@ from = ".claude/docs/director-gates/ql-test-coverage.md"
 to = "gates/ql-test-coverage.md"
 
 [[map]]
-from = ".claude/docs/director-gates/lp-code-review.md"
-to = "gates/lp-code-review.md"
+from = ".claude/docs/director-gates/td-adr.md"
+to = "gates/td-adr.md"
+
+[[map]]
+from = ".claude/docs/director-gates/td-architecture.md"
+to = "gates/td-architecture.md"
+
+[[map]]
+from = ".claude/docs/director-gates/td-change-impact.md"
+to = "gates/td-change-impact.md"
+
+[[map]]
+from = ".claude/docs/director-gates/td-engine-risk.md"
+to = "gates/td-engine-risk.md"
+
+[[map]]
+from = ".claude/docs/director-gates/td-feasibility.md"
+to = "gates/td-feasibility.md"
+
+[[map]]
+from = ".claude/docs/director-gates/td-manifest.md"
+to = "gates/td-manifest.md"
+
+[[map]]
+from = ".claude/docs/director-gates/td-phase-gate.md"
+to = "gates/td-phase-gate.md"
+
+[[map]]
+from = ".claude/docs/director-gates/td-system-boundary.md"
+to = "gates/td-system-boundary.md"
 
 [[map]]
 from = ".claude/rules/agent-memory.md"
 to = "rules/agent-memory.md"
+
+[[map]]
+from = ".claude/rules/ai-code.md"
+to = "rules/ai-code.md"
+
+[[map]]
+from = ".claude/rules/data-files.md"
+to = "rules/data-files.md"
+
+[[map]]
+from = ".claude/rules/design-docs.md"
+to = "rules/design-docs.md"
+
+[[map]]
+from = ".claude/rules/engine-code.md"
+to = "rules/engine-code.md"
+
+[[map]]
+from = ".claude/rules/gameplay-code.md"
+to = "rules/gameplay-code.md"
+
+[[map]]
+from = ".claude/rules/narrative.md"
+to = "rules/narrative.md"
+
+[[map]]
+from = ".claude/rules/network-code.md"
+to = "rules/network-code.md"
+
+[[map]]
+from = ".claude/rules/prototype-code.md"
+to = "rules/prototype-code.md"
+
+[[map]]
+from = ".claude/rules/shader-code.md"
+to = "rules/shader-code.md"
 
 [[map]]
 from = ".claude/rules/skill-authoring.md"
@@ -131,32 +607,12 @@ from = ".claude/rules/test-standards.md"
 to = "rules/test-standards.md"
 
 [[map]]
-from = ".claude/docs/templates/game-brief.md"
-to = "templates/game-brief.md"
+from = ".claude/rules/ui-code.md"
+to = "rules/ui-code.md"
 
 [[map]]
-from = ".claude/docs/templates/game-concept.md"
-to = "templates/game-concept.md"
-
-[[map]]
-from = ".claude/docs/templates/story.md"
-to = "templates/story.md"
-
-[[map]]
-from = ".claude/docs/templates/session-state.md"
-to = "templates/session-state.md"
-
-[[map]]
-from = ".claude/docs/templates/architecture-decision-record.md"
-to = "templates/architecture-decision-record.md"
-
-[[map]]
-from = ".claude/docs/templates/game-design-document.md"
-to = "templates/game-design-document.md"
-
-[[map]]
-from = ".claude/docs/templates/post-mortem.md"
-to = "templates/post-mortem.md"
+from = ".claude/docs/templates/**"
+to = "templates/"
 
 [[map]]
 from = ".claude/docs/workflow-modes.md"
@@ -203,6 +659,42 @@ from = ".claude/docs/settings-guidance.md"
 to = "docs/studio/settings-guidance.md"
 
 [[map]]
+from = ".claude/docs/agent-roster.md"
+to = "docs/studio/agent-roster.md"
+
+[[map]]
+from = ".claude/docs/agent-teams.md"
+to = "docs/studio/agent-teams.md"
+
+[[map]]
+from = ".claude/docs/context-management.md"
+to = "docs/studio/context-management.md"
+
+[[map]]
+from = ".claude/docs/effects-map.md"
+to = "docs/studio/effects-map.md"
+
+[[map]]
+from = ".claude/docs/model-tiers.md"
+to = "docs/studio/model-tiers.md"
+
+[[map]]
+from = ".claude/docs/quick-start.md"
+to = "docs/studio/quick-start.md"
+
+[[map]]
+from = ".claude/docs/rules-reference.md"
+to = "docs/studio/rules-reference.md"
+
+[[map]]
+from = ".claude/docs/setup-requirements.md"
+to = "docs/studio/setup-requirements.md"
+
+[[map]]
+from = ".claude/docs/skills-reference.md"
+to = "docs/studio/skills-reference.md"
+
+[[map]]
 from = ".claude/docs/workflow-catalog.yaml"
 to = "docs/studio/workflow-catalog.yaml"
 
@@ -219,6 +711,26 @@ from = "docs/WORKFLOW-GUIDE.md"
 to = "docs/studio/WORKFLOW-GUIDE.md"
 
 [[map]]
+from = "docs/skill-flow-diagrams.md"
+to = "docs/studio/skill-flow-diagrams.md"
+
+[[map]]
+from = "docs/CLAUDE.md"
+to = "docs/AGENTS.md"
+
+[[map]]
+from = "docs/architecture/tr-registry.yaml"
+to = "docs/architecture/tr-registry.yaml"
+
+[[map]]
+from = "docs/registry/architecture.yaml"
+to = "docs/registry/architecture.yaml"
+
+[[map]]
+from = "design/registry/entities.yaml"
+to = "design/registry/entities.yaml"
+
+[[map]]
 from = "CLAUDE.md"
 to = "AGENTS.md"
 
@@ -227,20 +739,64 @@ from = ".claude/settings.json"
 to = "tools/gamestudio/data/claude-deny.json"
 
 [[map]]
+from = ".claude/scripts/adr-dep-graph.sh"
+to = "tools/gamestudio/helpers/adr_dep_graph.py"
+
+[[map]]
 from = ".claude/scripts/adr-status.sh"
 to = "tools/gamestudio/helpers/adr_status.py"
+
+[[map]]
+from = ".claude/scripts/agent-check.sh"
+to = "tools/gamestudio/helpers/agent_check.py"
 
 [[map]]
 from = ".claude/scripts/artifact-check.sh"
 to = "tools/gamestudio/helpers/artifact_check.py"
 
 [[map]]
+from = ".claude/scripts/asset-scan.sh"
+to = "tools/gamestudio/helpers/asset_scan.py"
+
+[[map]]
+from = ".claude/scripts/bug-stats.sh"
+to = "tools/gamestudio/helpers/bug_stats.py"
+
+[[map]]
+from = ".claude/scripts/code-markers.sh"
+to = "tools/gamestudio/helpers/code_markers.py"
+
+[[map]]
 from = ".claude/scripts/config-set.sh"
 to = "tools/gamestudio/helpers/config_set.py"
 
 [[map]]
+from = ".claude/scripts/content-count.sh"
+to = "tools/gamestudio/helpers/content_count.py"
+
+[[map]]
+from = ".claude/scripts/debt-register.sh"
+to = "tools/gamestudio/helpers/debt_register.py"
+
+[[map]]
+from = ".claude/scripts/flaky-stats.sh"
+to = "tools/gamestudio/helpers/flaky_stats.py"
+
+[[map]]
+from = ".claude/scripts/gdd-structure-check.sh"
+to = "tools/gamestudio/helpers/gdd_structure_check.py"
+
+[[map]]
+from = ".claude/scripts/inputs-check.sh"
+to = "tools/gamestudio/helpers/inputs_check.py"
+
+[[map]]
 from = ".claude/scripts/md-section.sh"
 to = "tools/gamestudio/helpers/md_section.py"
+
+[[map]]
+from = ".claude/scripts/plan-math.sh"
+to = "tools/gamestudio/helpers/plan_math.py"
 
 [[map]]
 from = ".claude/scripts/project-coherence.sh"
@@ -251,8 +807,16 @@ from = ".claude/scripts/project-state.sh"
 to = "tools/gamestudio/helpers/project_state.py"
 
 [[map]]
+from = ".claude/scripts/registry.sh"
+to = "tools/gamestudio/helpers/registry.py"
+
+[[map]]
 from = ".claude/scripts/review-receipts.sh"
 to = "tools/gamestudio/helpers/review_receipts.py"
+
+[[map]]
+from = ".claude/scripts/review-scope.sh"
+to = "tools/gamestudio/helpers/review_scope.py"
 
 [[map]]
 from = ".claude/scripts/rotate-session-state.sh"
@@ -267,12 +831,24 @@ from = ".claude/scripts/set-stage.sh"
 to = "tools/gamestudio/helpers/set_stage.py"
 
 [[map]]
+from = ".claude/scripts/skill-lint.sh"
+to = "tools/gamestudio/helpers/skill_lint.py"
+
+[[map]]
 from = ".claude/scripts/story-facts.sh"
 to = "tools/gamestudio/helpers/story_facts.py"
 
 [[map]]
 from = ".claude/scripts/story-status.sh"
 to = "tools/gamestudio/helpers/story_status.py"
+
+[[map]]
+from = ".claude/scripts/test-run.sh"
+to = "tools/gamestudio/helpers/test_run.py"
+
+[[map]]
+from = ".claude/scripts/test-scaffold.sh"
+to = "tools/gamestudio/helpers/test_scaffold.py"
 
 [[map]]
 from = "project.yaml"
@@ -290,6 +866,26 @@ to = ".gitattributes"
 from = "LICENSE"
 to = "LICENSE"
 
+[[map]]
+from = "studio-tests/CLAUDE.md"
+to = "studio-tests/AGENTS.md"
+
+[[map]]
+from = "studio-tests/catalog.yaml"
+to = "studio-tests/catalog.toml"
+
+[[map]]
+from = "studio-tests/**"
+to = "studio-tests/"
+
+[[map]]
+from = ".github/ISSUE_TEMPLATE/**"
+to = ".github/ISSUE_TEMPLATE/"
+
+[[map]]
+from = ".github/PULL_REQUEST_TEMPLATE.md"
+to = ".github/PULL_REQUEST_TEMPLATE.md"
+
 [[ignore]]
 path = ".claude/skills/dev-story/references/engine-checks.md"
 reason = "engine-layer: parse-check and capture commands for Unity and Unreal become ENGINE.md hook dev-story/engine-checks in the engine layer"
@@ -297,6 +893,14 @@ reason = "engine-layer: parse-check and capture commands for Unity and Unreal be
 [[ignore]]
 path = ".claude/skills/setup-engine/references/godot-language-config.md"
 reason = "other-engine: Godot language configuration; Godot is not ported"
+
+[[ignore]]
+path = "production/session-state/.gitkeep"
+reason = "replaced: production/README.md keeps the folder"
+
+[[ignore]]
+path = "src/.gitkeep"
+reason = "replaced: src/README.md keeps the folder"
 
 [[ignore]]
 path = ".claude/hooks/pre-compact.sh"

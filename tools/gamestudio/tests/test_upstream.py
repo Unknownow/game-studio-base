@@ -61,5 +61,21 @@ reason = "claude-only: no event"
         self.assertEqual(self.run_cli("upstream-diff", "--clone", self.clone)[0], 2)
 
 
+CCGS_CLONE = "D:/scratch/ccgs-v1.2.0"
+
+
+class RealCoverageTest(unittest.TestCase):
+    def test_real_map_covers_the_pinned_release(self):
+        from ._util import REPO, STUDIO
+        import subprocess
+        import sys
+        if not os.path.isdir(CCGS_CLONE) or subprocess.run(["git", "-C", CCGS_CLONE, "rev-parse", "--verify", "-q", "v1.2.0"],
+                                                          capture_output=True).returncode != 0:
+            self.skipTest("the CCGS clone at %s with tag v1.2.0 is not available" % CCGS_CLONE)
+        r = subprocess.run([sys.executable, STUDIO, "--root", REPO, "upstream-diff", "--clone", CCGS_CLONE, "--to", "v1.2.0", "--coverage"],
+                           capture_output=True, text=True, encoding="utf-8")
+        self.assertEqual(r.returncode, 0, r.stdout[-500:])
+
+
 if __name__ == "__main__":
     unittest.main()
