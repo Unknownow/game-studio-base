@@ -165,14 +165,18 @@ No Unity suites need to run, because nothing under `Assets/`, `Packages/` or `Pr
 ### 9. Commits
 1. `docs: Unity landing page`: adds `.github/README.md`.
 
+## Amendment 1 (executor: verify)
+Check the repo page, links and the green `check` run on https://github.com/Unknownow/game-studio-unity (Actions tab), then create the v0.1.0 Release by hand.
+
+
 <!-- pi-workflow:status -->
 ## Checklist
-- [ ] S1 In `D:/personal/game-studio-unity`:
-- [ ] S2 Create `.github/README.md` with exactly the content in §4. Don't edit, add or delete any other file.
-- [ ] S3 Run the two commands in §6. If one fails because of the new file, change only the new file, and keep its wording to the 
-- [ ] S4 Make the commit:
-- [ ] S5 Call `judge` with focus "Add a Unity landing page to game-studio-unity". Fix any blocker or major finding by amending th
-- [ ] S6 Deliver: the fork's `main` to `origin` (`Unknownow/game-studio-unity`), as a push on its own. Then:
+- [x] S1 In `D:/personal/game-studio-unity`:
+- [x] S2 Create `.github/README.md` with exactly the content in §4. Don't edit, add or delete any other file.
+- [x] S3 Run the two commands in §6. If one fails because of the new file, change only the new file, and keep its wording to the 
+- [x] S4 Make the commit:
+- [x] S5 Call `judge` with focus "Add a Unity landing page to game-studio-unity". Fix any blocker or major finding by amending th
+- [x] S6 Deliver: the fork's `main` to `origin` (`Unknownow/game-studio-unity`), as a push on its own. Then:
 ## For you after the flow
 - S7 Verify: open https://github.com/Unknownow/game-studio-unity and its Actions tab. Look for:
 - S8 Verify: on https://github.com/Unknownow/game-studio-unity/releases/new, create the release from the text you were given 
