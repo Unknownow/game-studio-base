@@ -28,7 +28,7 @@ If the command cannot run, assume `minimal` (the default).
 
 Four modes:
 
-- **Full spec**: `/setup-engine godot 4.7` — engine and version provided
+- **Full spec**: `/setup-engine unity 6.3` — engine and version provided
 - **Engine only**: `/setup-engine unity` — engine provided, version will be looked up
 - **No args**: `/setup-engine` — fully guided mode (engine recommendation + version)
 - **Refresh**: `/setup-engine refresh` — update reference docs (see Section 10)

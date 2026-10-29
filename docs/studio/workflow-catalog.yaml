@@ -105,7 +105,7 @@ phases:
               pattern: '^name[[:space:]]*=[[:space:]]*"([Gg]odot|[Uu]nity|[Uu]nreal)"'
             - glob: "engine.toml"
               pattern: '^name[[:space:]]*=[[:space:]]*"[^"]'
-            # technical-preferences.md writes "- **Engine**: Godot 4.7", so the
+            # technical-preferences.md writes "- **Engine**: Unity 6.3 LTS", so the
             # pattern must clear the bold markers. The [^[] guard rejects the
             # "[TO BE CONFIGURED]" placeholder.
             - glob: "docs/technical-preferences.md"

@@ -55,7 +55,7 @@ Bridges planning and code by loading the full context for a single story (story 
 
 ## Immutability Rules
 - READS but does NOT modify: `project.toml`, `docs/architecture/tr-registry.yaml`, `docs/architecture/adr-NNNN-[slug].md`, all GDD files in `design/gdd/`, `docs/architecture/control-manifest.md`, `docs/technical-preferences.md` (legacy fallback), `engine-reference/[engine]/VERSION.md`
-- MODIFIES, through the programmer roles: `<code root>/**` (new/updated source files; code root resolved per `docs/studio/code-root-resolution.md`) and the engine's test root (the new test file; `tests/` on Godot)
+- MODIFIES, through the programmer roles: `<code root>/**` (new/updated source files; code root resolved per `docs/studio/code-root-resolution.md`) and the engine's test root (the new test file)
 - MODIFIES, itself, each after an ask that names the file (in `collaborative` mode; `docs/studio/automation-modes.md` governs the others): the story file's `Status:`, `Last Updated:`, `## Files`, `ADR Version`, `**ADR Decision Summary**`, `## Implementation Notes`, `Manifest Version:` and `Manifest-Note:` (see the story row above); the story's entry in `production/sprint-status.yaml` (`status: in-progress`, top-level `updated`); a dependency story's `Status:` (that dependency answer only); a Config/Data story's data file; on Unity, `Assets/Scripts/ScreenshotOnArg.cs`, written verbatim from `docs/studio/run-and-observe.md` when the project has none
 - MODIFIES without an ask: `production/session-state/active.md` — its `<!-- CHECKPOINT -->` block is overwritten, never appended
 - Sets the story file's own `Status` field to `In Progress` only (Phase 3, before

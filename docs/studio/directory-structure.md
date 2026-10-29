@@ -42,19 +42,17 @@ engine's own toolchain:
 
 | `engine.name` | Code root | Why it cannot be `src/` |
 |---|---|---|
-| **Godot** | `src/` | No constraint: Godot loads from `res://` anywhere under the project root. |
+| **Other (default)** | `src/` | No constraint. |
 | **Unity** | `Assets/` | Unity compiles **only** `Assets/` and `Packages/`. Code outside them is invisible to the compiler. |
-| **Unreal** | `Source/<Module>/` | UnrealBuildTool discovers modules under `Source/`; content lives in `Content/`. A module elsewhere is not built. |
 
 **Resolve the code root from `engine.name` (or `code_root` in `engine.toml`) before writing any source file.** A
-path shown as `src/…` alone is a Godot example: read it as *"the code root"* and substitute the row above.
+path shown as `src/…` alone is a default-row example: read it as *"the code root"* and substitute the row above.
 
 **Tests follow the same rule**, because the same compilers decide what they see:
 
 | `engine.name` | Test root | Anywhere else |
 |---|---|---|
-| **Godot** | `tests/unit/`, `tests/integration/` | none |
+| **Other (default)** | `tests/unit/`, `tests/integration/` | none |
 | **Unity** | `Assets/Tests/EditMode/`, `Assets/Tests/PlayMode/` | not compiled: "0 tests, Passed" |
-| **Unreal** | `Source/<Module>/Private/Tests/` | not built: "No automation tests matched" |
 
 Read `tests/unit/[system]/` (or `integration/`) anywhere as the test root plus `[System]/`.
