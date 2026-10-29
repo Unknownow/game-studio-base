@@ -143,10 +143,10 @@ The skill must end with a recommended next action or follow-up path. Look for:
 **WARN** if absent.
 
 ### Check 6 — Engine Hook Lines
-Every engine step line in the skill and its `references/` must read
-``Engine step `hook: <skill>/<point>`: if `ENGINE.md` exists, follow its section
-`## hook: <skill>/<point>`; otherwise ask the user how their engine does this and
-record the answer in `ENGINE.md` under that heading.`` with an id that matches
+Every engine step line in the skill and its `references/` must be the line described in
+`AGENTS.md` under "Engine hooks": the words "Engine step", then the hook id in backticks
+after `hook:`, then the instruction to follow the `## hook:` section of `ENGINE.md`
+or to ask the user and record the answer there. The id must match
 `[a-z0-9-]+/[a-z0-9-]+`.
 
 **FAIL** if a line names a hook but is malformed. Skills with no engine step pass

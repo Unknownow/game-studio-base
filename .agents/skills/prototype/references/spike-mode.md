@@ -20,7 +20,7 @@ gate implications. Hard cap: ~4 hours.
 
 1. **Define the spike question** (plain text, not a widget): "What specific question does this spike answer? Give me one sentence: 'Can we [do X] using [approach Y]?'"
 
-2. **Choose path** — same AskUserQuestion widget as Phase 3 (HTML / Engine / Paper).
+2. **Choose path** — same question prompt as Phase 3 (HTML / Engine / Paper).
 
 3. **Scope** — maximum 2-3 bullet points. One mechanic, one technical question, nothing else.
 
