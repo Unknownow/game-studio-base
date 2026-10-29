@@ -86,7 +86,7 @@ Read the argument for the launch date or `dry-run` mode. Dry-run mode generates 
 > `NOT ASSESSED — [code root unresolved | no source files | no asset folder | directory empty]`.
 > Never a bare tick. The code root is `src/`, `Assets/` or `Source/` by engine
 > (resolve per `docs/studio/code-root-resolution.md`); assets live in
-> `Assets/`, `Assets/` or `Content/`.
+> `Assets/` or `Content/`.
 >
 > This applies to all four bullets below: each searches the same way, for
 > placeholder assets, TODOs, debug output and hardcoded test values, and each

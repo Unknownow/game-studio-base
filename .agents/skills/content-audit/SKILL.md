@@ -156,7 +156,7 @@ what has been implemented. Use Glob and Grep to locate files.
 
 **On Unity, content lives under `Assets/`** (compare the case exactly —
 `docs/studio/code-root-resolution.md`), and rarely in a `data/` folder. So on
-Unity every `Assets/…` glob below also runs under `Assets/`, without requiring
+Unity every `Assets/data/…` glob below also runs anywhere under `Assets/`, without requiring
 a `data/` segment — for items, `Assets/**/items/**`, `Assets/**/Items/**` and
 `Assets/**/*Item*.asset` — and data files include `.asset` (ScriptableObjects)
 and `.prefab`. Skipping this finds zero items, abilities, quests and dialogue

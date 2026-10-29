@@ -196,7 +196,7 @@ Ask: "May I write this translator brief to `production/localization/translator-b
 
 ## Phase 2F: Cultural Review Mode
 
-Act as `localization-lead` (read `roles/localization-lead.md`). Ask them to audit the following for cultural sensitivity across the target locales (read from `Assets/data/strings/` and `Assets/`):
+Act as `localization-lead` (read `roles/localization-lead.md`). Ask them to audit the following for cultural sensitivity across the target locales (read from `Assets/data/strings/` and the rest of `Assets/`):
 
 ### Content Areas to Review
 

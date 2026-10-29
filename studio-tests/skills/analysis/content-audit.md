@@ -286,7 +286,7 @@ Fixture defaults.
 - [ ] Writes only after "May I write" and only to `docs/content-audit-[YYYY-MM-DD].md`; `--summary` writes nothing
 - [ ] A missing required input, a scope with no counts, or an untaken Found count yields `NOT ASSESSED — NO DATA`, never a computed gap percentage or COMPLETE
 - [ ] No director gates are invoked
-- [ ] On Unity, every content glob also runs under `Assets/` without a `data/` segment (e.g. `Assets/**/Items/**`, `*Item*.asset`) — a Unity project's items, abilities, quests and dialogue are never reported NOT STARTED from an `Assets/data/`-only scan
+- [ ] On Unity, every content glob also runs anywhere under `Assets/` without a `data/` segment (e.g. `Assets/**/Items/**`, `*Item*.asset`) — a Unity project's items, abilities, quests and dialogue are never reported NOT STARTED from an `Assets/data/`-only scan
 
 ---
 

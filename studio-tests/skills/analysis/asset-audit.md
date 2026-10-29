@@ -3,7 +3,7 @@
 ## Skill Summary
 
 `/asset-audit` audits the engine's asset root — `Assets/` (art, audio, vfx,
-shaders, data) on Godot, `Assets/` on Unity, `Content/` on Unreal — for naming
+shaders, data) by default, all of `Assets/` on Unity, `Content/` on Unreal — for naming
 convention compliance, size budgets, format standards, orphaned assets and
 missing assets. It reads the art bible or asset standards from the design docs
 (Phase 1), resolves the engine and its code root and scans the asset root with
@@ -281,7 +281,7 @@ Fixture defaults.
 ## Protocol Compliance
 
 - [ ] Reads the art bible or asset standards design docs before scanning (Phase 1)
-- [ ] Resolves the engine and its code root, then scans that engine's asset root with Glob (`Assets/` subfolders on Godot, `Assets/` on Unity, `Content/` on Unreal); an unresolved engine stops the run as NOT ASSESSED
+- [ ] Resolves the engine and its code root, then scans that engine's asset root with Glob (`Assets/` subfolders by default, all of `Assets/` on Unity, `Content/` on Unreal); an unresolved engine stops the run as NOT ASSESSED
 - [ ] Report uses one table per category: Naming (File, Expected Pattern, Issue), Size (File, Budget, Actual, Overage), Format (File, Expected Format, Actual Format), Orphaned (File, Last Modified, Size, Recommendation), Missing (Reference Location, Expected Path)
 - [ ] A size or format it cannot measure is `NOT ASSESSED`, never an estimate, and every section not assessed is named with its reason
 - [ ] Each recommendation names the change for its violation (target resolution or compression, corrected name, target format)
