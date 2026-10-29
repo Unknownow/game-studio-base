@@ -77,7 +77,7 @@ Fixture defaults.
 - `project.toml`: `project.stage: Release`, `modes.rigor: standard`, `platform.cert_tier: steam`,
   engine Godot (code root `src/`); a single-player game with no servers
 - `src/` has 40 source files with no TODO/FIXME/HACK, no debug output, no placeholder or hardcoded dev values
-- `assets/` exists with final assets
+- `Assets/` exists with final assets
 - `production/releases/` does not exist yet
 - In Phase 4b the user answers `Yes — all of them` for every section, except the
   Infrastructure question, where `Some differ` gives each Servers item N/A and
@@ -168,7 +168,7 @@ Fixture defaults.
 
 **Fixture:**
 - `project.toml`: `project.stage: Release`, `platform.cert_tier: itch`, engine Godot
-- `src/` exists but is empty; no `assets/` directory
+- `src/` exists but is empty; no `Assets/` directory
 
 **Input:** `/launch-checklist 2026-11-01`
 

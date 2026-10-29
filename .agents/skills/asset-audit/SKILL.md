@@ -71,8 +71,8 @@ Asset Standards section sets budgets, formats and the naming convention.
 
 ## Phase 2: Scan Asset Directories
 
-Assets live under the engine's asset root: `assets/` by default, `Assets/` on
-Unity. Resolve the engine and its code root per
+Assets live under the engine's asset root: `Assets/` (art, audio, vfx,
+shaders, data) by default, all of `Assets/` on Unity. Resolve the engine and its code root per
 `docs/studio/code-root-resolution.md`; that code root is the one Phase 3's
 orphan and missing-asset searches read. If it is unresolved, stop:
 `NOT ASSESSED — engine unresolved`, naming `/setup-engine`.

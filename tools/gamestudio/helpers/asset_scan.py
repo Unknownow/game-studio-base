@@ -16,8 +16,8 @@ dimensions, file sizes against the budgets you pass, and audio sample rates wher
 Observations, not a verdict. A check that did not run says so in a `check` row and its hits are `-`,
 never 0: a scan that measured nothing is not a scan that found nothing.
   --engine E          unity or none (default: engine.name from project.toml; anything but unity uses
-                      the neutral assets/ layout)
-  --category C        keep one category: in the neutral layout a folder of assets/ (art, audio, vfx,
+                      the neutral Assets/ layout; an old lowercase assets/ is read when there is no Assets/)
+  --category C        keep one category: in the neutral layout a folder of Assets/ (art, audio, vfx,
                       shaders or data); on unity the first folder under Assets/ (any case)
   --budget KEY=SIZE   a size budget in bytes, or with a K (1024) or M (1048576) suffix. KEY is `all`, a
                       type (texture, audio, data, other) or a file extension; the most specific wins:
@@ -27,7 +27,7 @@ never 0: a scan that measured nothing is not a scan that found nothing.
   --name-regex ERE    the art bible's naming rule: replaces the built-in rule, and is the only rule on
                       unity; matched against the file name with its extension
   --files             one FILE row per scanned file
-What is scanned: neutral layout: assets/art, assets/audio, assets/vfx, assets/shaders, assets/data (other
+What is scanned: neutral layout: Assets/art, Assets/audio, Assets/vfx, Assets/shaders, Assets/data (other
 folders are counted as outside_scope). Unity: Assets/, leaving out scripts (.cs, .asmdef) and .meta files.
 .gitkeep placeholders are left out everywhere; each left-out kind is counted in an `excluded` row.
 Naming (neutral layout): lowercase letters, digits and _ in the name, a-z 0-9 in the extension, one dot.
@@ -206,13 +206,19 @@ def main(root, argv):
     if eng == "none" and catf and catf not in NEUTRAL_CATS:
         sys.stderr.write("asset-scan: --category takes art, audio, vfx, shaders or data, got %s (try --help)\n" % catf)
         return 2
-    rootdir = "Assets" if eng == "unity" else "assets"
+    rootdir = "Assets"
+    top = os.listdir(root)
+    legacy = eng == "none" and "Assets" not in top and "assets" in top
+    if legacy:
+        rootdir = "assets"
     print("engine\t%s\t%s" % (eng, esrc))
     if rootdir not in os.listdir(root) or not os.path.isdir(os.path.join(root, rootdir)):
         print("root\t%s\tabsent" % rootdir)
         sys.stderr.write("asset-scan: %s/ does not exist; nothing was scanned\n" % rootdir)
         return 4
     print("root\t%s\tpresent" % rootdir)
+    if legacy:
+        sys.stderr.write("asset-scan: warning: assets/ is the old asset root; rename it to Assets/\n")
     allf = []
     for dp, dn, fn in os.walk(os.path.join(root, rootdir)):
         for f in fn:
@@ -251,7 +257,7 @@ def main(root, argv):
         print("category_filter\t%s" % catf)
     print("scanned\t%d" % len(kept))
     if eng == "none":
-        print("outside_scope\t%d\tfiles under assets/ outside art, audio, vfx, shaders and data" % nout)
+        print("outside_scope\t%d\tfiles under Assets/ outside art, audio, vfx, shaders and data" % nout)
     for k in ([".gitkeep"] if eng == "none" else [".meta", ".cs", ".asmdef", ".gitkeep"]):
         print("excluded\t%s\t%d" % (k, excluded.get(k, 0)))
     catn = {}
@@ -298,8 +304,8 @@ def main(root, argv):
         if nodata:
             print("check\tart_pattern\tnot_run\t%s\ncheck\taudio_pattern\tnot_run\t%s" % (nodata, nodata))
         else:
-            print("check\tart_pattern\tnot_checkable\t%d files under assets/art; the category and size values are not defined and the examples disagree" % nart)
-            print("check\taudio_pattern\tnot_checkable\t%d files under assets/audio; the category values are not defined and the name may hold any number of words" % naud)
+            print("check\tart_pattern\tnot_checkable\t%d files under Assets/art; the category and size values are not defined and the examples disagree" % nart)
+            print("check\taudio_pattern\tnot_checkable\t%d files under Assets/audio; the category values are not defined and the name may hold any number of words" % naud)
     print("check\tpot\t%s\t%s" % potc)
     print("check\tsize\t%s\t%s" % sizec)
     print("check\tdim\t%s\t%s" % dimc)

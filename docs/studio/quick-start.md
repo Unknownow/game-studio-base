@@ -292,5 +292,5 @@ docs/technical-preferences.md      -- Legacy fallback for project.toml config
 tools/studio.py                    -- The one command line: status, check, config, update, helpers
 hooks/                             -- Git hooks (pre-commit runs `check --staged`)
 studio-tests/                      -- Skill and role test specs and catalog
-design/ production/ src/ assets/ prototypes/ tests/  -- Your game
+design/ production/ src/ Assets/ prototypes/ tests/  -- Your game
 ```

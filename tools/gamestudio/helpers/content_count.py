@@ -14,15 +14,16 @@ and status band, with the gap table's totals. Observations, not a verdict.
                   items sections, deprecated ones left out
   found [--engine E] [--files]
                   content files on disk (E is unity or none; default: engine.name from project.toml,
-                  anything but unity uses the neutral assets/ layout)
+                  anything but unity uses the neutral Assets/ layout)
   band FOUND SPECIFIED
                   the percentage and status band of one pair
   gap             rows `system<TAB>type<TAB>specified<TAB>found` on stdin: the gap table, with totals
 The status bands (found / specified compared exactly; percentages truncated to one decimal):
   found = 0 NOT STARTED; 0 < found/specified < 50% EARLY; 50% <= found/specified < 100% IN PROGRESS;
   found >= specified COMPLETE. A specified of 0 has no percentage and no band: `-`.
-Where `found` looks: neutral layout: assets/ (data types need a data/ folder first, as the skill's
-assets/data/** globs do); unity: Assets/ (every type, no data/ segment needed) and assets/. Types:
+Where `found` looks: neutral layout: Assets/ (data types need a data/ folder first, as the skill's
+Assets/data/** globs do; an old lowercase assets/ is read too, with a warning); unity: Assets/ (every
+type, no data/ segment needed). Types:
   levels      scene files (unity: .unity; neutral: .scene, .level, .map, .json, .yaml) in folders named
               levels, areas, maps, worlds or stages
   characters  folders enemies, characters, npcs
@@ -187,7 +188,7 @@ def cmd_found(root, engine_arg, showfiles):
         eng = "unity" if str(val or "").lower() == "unity" else "none"
         esrc = src if val else "default"
     print("engine\t%s\t%s" % (eng, esrc))
-    roots = ["assets", "Assets"] if eng == "unity" else ["assets"]
+    roots = ["Assets"] if eng == "unity" else ["Assets", "assets"]
     present = []
     top = os.listdir(root)
     for r in roots:
@@ -196,6 +197,8 @@ def cmd_found(root, engine_arg, showfiles):
             present.append(r)
         else:
             print("root\t%s\tabsent" % r)
+    if "assets" in present:
+        sys.stderr.write("content-count: warning: assets/ is the old asset root; rename it to Assets/\n")
     files = []
     for r in present:
         for dp, _, fn in os.walk(os.path.join(root, r)):
@@ -220,7 +223,7 @@ def cmd_found(root, engine_arg, showfiles):
         rt, fname = seg[0], seg[-1]
         ext = fname.rsplit(".", 1)[1].lower() if "." in fname else ""
         first = 1
-        if rt == "assets":
+        if eng != "unity":
             first = 2 if (n >= 3 and seg[1].lower() == "data") else n - 1
         for g in TYPES:
             hit, hn = False, []

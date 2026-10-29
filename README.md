@@ -43,7 +43,7 @@ python tools/studio.py update --from ../game-studio-base --dry-run
 python tools/studio.py update --from ../game-studio-base
 ```
 
-Only files that match the manifest are replaced. Your `project.toml`, `design/`, `production/`, `src/`, `assets/` and `tests/` are never touched.
+Only files that match the manifest are replaced. Your `project.toml`, `design/`, `production/`, `src/`, `Assets/` and `tests/` are never touched.
 
 ## Upstream flow
 

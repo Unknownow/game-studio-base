@@ -62,14 +62,14 @@ Fixture defaults.
 - `engine.name` in `project.toml` is Godot
 - GDD for the target feature exists at `design/gdd/combat.md`
 - Sound bible exists at `design/audio/sound-bible.md`
-- Existing audio assets are listed in `assets/audio/`
+- Existing audio assets are listed in `Assets/audio/`
 - No accessibility gaps exist in the planned audio event list
 
 **Input:** `/team-audio combat`
 
 **Expected behavior:**
 1. Before any run, one line announces the active set for `team.size: studio`
-2. Context gathering: orchestrator reads `design/gdd/combat.md`, `design/audio/sound-bible.md`, and `assets/audio/` asset list before running any agent
+2. Context gathering: orchestrator reads `design/gdd/combat.md`, `design/audio/sound-bible.md`, and `Assets/audio/` asset list before running any agent
 3. Step 1: audio-director is run; defines sonic identity, emotional tone, adaptive music direction, mix targets, and adaptive audio rules for combat
 4. a question to the user presents audio direction; user approves before Step 2 begins
 5. Step 2: sound-designer and accessibility-specialist are run in turn; sound-designer produces SFX specifications, audio event list with trigger conditions, and mixing groups; accessibility-specialist identifies critical gameplay audio events and specifies visual fallback and subtitle requirements

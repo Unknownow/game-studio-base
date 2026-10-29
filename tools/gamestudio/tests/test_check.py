@@ -56,12 +56,26 @@ class CheckTest(RepoCase):
         self.assertEqual(self.check()[0], 0)
 
     def test_data_json(self):
-        self.with_toml({"assets/data/a.json": '{"a": 1}'})
+        self.with_toml({"Assets/data/a.json": '{"a": 1}'})
         self.assertEqual(self.check()[0], 0)
-        self.add({"assets/data/b.json": '{"a": 1,}'})
+        self.add({"Assets/data/b.json": '{"a": 1,}'})
+        code, out, _ = self.check()
+        self.assertEqual(code, 1)
+        self.assertIn("ERROR data-json Assets/data/b.json", out)
+        self.assertNotIn("legacy-assets", out)
+
+    def test_data_json_legacy_lowercase_root(self):
+        self.with_toml({"assets/data/b.json": "{bad"})
         code, out, _ = self.check()
         self.assertEqual(code, 1)
         self.assertIn("ERROR data-json assets/data/b.json", out)
+        self.assertIn("legacy-assets", out)
+
+    def test_legacy_assets_warns_only(self):
+        self.with_toml({"assets/data/ok.json": "{}"})
+        code, out, _ = self.check()
+        self.assertEqual(code, 0)
+        self.assertIn("legacy-assets", out)
 
     def test_data_json_engine_globs(self):
         self.with_toml({"engine.toml": '[engine]\nname = "x"\ndata_globs = ["Content/**/*.json"]\n', "Content/a/b.json": "{"})
@@ -178,6 +192,12 @@ class CheckTest(RepoCase):
         self.with_toml({"files.manifest": "# m\nAGENTS.md\n"})
         self.assertEqual(self.check()[0], 0)
         self.add({"files.manifest": "# m\nAGENTS.md\ndesign/**\n"})
+        code, out, _ = self.check()
+        self.assertEqual(code, 1)
+        self.assertIn("manifest-game-owned", out)
+
+    def test_manifest_game_owned_legacy_assets(self):
+        self.with_toml({"files.manifest": "# m\nAGENTS.md\nassets/x\n"})
         code, out, _ = self.check()
         self.assertEqual(code, 1)
         self.assertIn("manifest-game-owned", out)

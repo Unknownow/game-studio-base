@@ -108,7 +108,7 @@ names one; most are fixed by the skill that already reads them:
 | 1 game-designer (draft) | `production/combat/[feature]-gdd-draft.md` | this skill — you write the final `design/gdd/[feature].md` (Phase 1) |
 | 2 gameplay-programmer | `docs/architecture/[feature]-sketch.md` | see note below |
 | 2 engine specialist | `docs/architecture/[feature]-engine-notes.md` | see note below |
-| 3 gameplay-programmer, ai-programmer, technical-artist | the code root and `assets/` — the files the Phase 3 approval lists | outside the bounded exception: asked once for the set (File Write Protocol) |
+| 3 gameplay-programmer, ai-programmer, technical-artist | the code root and `Assets/` — the files the Phase 3 approval lists | outside the bounded exception: asked once for the set (File Write Protocol) |
 | 3 sound-designer | `production/combat/[feature]-audio-events.md` | this skill |
 | 5 qa-tester (test cases) | `production/qa/test-cases/[feature]-cases.md` | `/team-qa` Phase 4 |
 | 5 qa-tester (bugs) | `production/qa/bugs/BUG-[NNNN].md` | `/team-qa` Phase 5 |
@@ -229,7 +229,7 @@ delegated to sub-agents run, under two rules:
   one you named, the artifact is new, and the phase is gated by an
   a question to the user. The sub-agent writes them without a per-write prompt.
 - **Implementation files** — Phase 3's code, VFX and shader files, and any
-  Phase 4 integration edits, under the code root and `assets/` — are outside
+  Phase 4 integration edits, under the code root and `Assets/` — are outside
   that exception, as the agents' own files say. Each implementing agent first
   returns the files it will create or change with a one-line summary each; ask
   once for the whole set ("May I have [agents] write these [N] files?") and have

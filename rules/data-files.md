@@ -1,5 +1,5 @@
 ---
-paths: ["assets/data/**/*.json"]
+paths: ["Assets/data/**/*.json"]
 ---
 
 # Data File Rules

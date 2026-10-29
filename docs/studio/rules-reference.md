@@ -21,10 +21,10 @@ An engine layer (for example `game-studio-unity`) adds rules under `rules/<engin
 | `ui-code.md` | `src/ui/**` | No game state ownership, localization-ready, accessibility |
 | `design-docs.md` | `design/gdd/**` | Required sections per `modes.workflow` (8 at `full`, 5 at `standard`), formula format, edge cases |
 | `narrative.md` | `design/narrative/**` | Lore consistency, character voice, canon levels |
-| `data-files.md` | `assets/data/**/*.json` | JSON validity, naming conventions, schema rules |
+| `data-files.md` | `Assets/data/**/*.json` | JSON validity, naming conventions, schema rules |
 | `test-standards.md` | `tests/**` | Test naming, coverage requirements, fixture patterns |
 | `prototype-code.md` | `prototypes/**` | Relaxed standards, README required, hypothesis documented |
-| `shader-code.md` | `assets/shaders/**` | Naming conventions, performance targets, cross-platform rules |
+| `shader-code.md` | `Assets/shaders/**` | Naming conventions, performance targets, cross-platform rules |
 | `agent-memory.md` | `.agents/memory/**` | The one place an agent may write unasked — and why a temporary absence must never be recorded as a durable fact |
 | `skill-authoring.md` | `.agents/skills/**`, `roles/**` | A check must be able to report that it did not run — the five obligations for verdicts, defaults, skips, sourcing and derived coverage |
 

@@ -39,6 +39,15 @@ def call(plugin, fn, ctx, *args, default=None):
     return f(ctx, *args)
 
 
+def derive_code_root(root):
+    """The single src/Source folder, or Assets when ProjectSettings/ProjectVersion.txt exists. None if zero or several."""
+    top = os.listdir(root)
+    present = [d for d in ("src", "Source") if d in top]
+    if "Assets" in top and os.path.isfile(os.path.join(root, "ProjectSettings", "ProjectVersion.txt")):
+        present.append("Assets")
+    return present[0] if len(present) == 1 else None
+
+
 def code_root(ctx, plugin=None):
     """Plugin, then engine.toml code_root, then an unambiguous src/Assets/Source folder. None if unresolved."""
     plugin = plugin if plugin is not None else load_plugin(ctx)
@@ -48,8 +57,7 @@ def code_root(ctx, plugin=None):
     v = ctx.engine_toml.get("code_root")
     if v:
         return v
-    present = [d for d in ("src", "Assets", "Source") if d in os.listdir(ctx.root)]
-    return present[0] if len(present) == 1 else None
+    return derive_code_root(ctx.root)
 
 
 def data_globs(ctx, plugin=None):

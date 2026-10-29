@@ -58,7 +58,7 @@ Fixture defaults.
   - Doc comments (`##`) on every public method and the class
   - Every method under cyclomatic complexity 10 and under 40 lines
   - Dependencies injected; no singletons
-  - All tuning values loaded from `assets/data/`
+  - All tuning values loaded from `Assets/data/`
   - Depends on interfaces, not concrete classes
 - Header comment: `# Implements ADR-0004 (docs/architecture/adr-0004-health.md)`
 - `docs/architecture/adr-0004-health.md` has `## Decision` and `## Consequences` sections, and the code follows the chosen approach

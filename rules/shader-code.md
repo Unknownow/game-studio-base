@@ -1,5 +1,5 @@
 ---
-paths: ["assets/shaders/**"]
+paths: ["Assets/shaders/**"]
 ---
 
 # Shader Code Standards

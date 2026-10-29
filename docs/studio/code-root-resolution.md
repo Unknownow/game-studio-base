@@ -21,12 +21,13 @@ code. This file is the procedure for applying it.
 1. `engine.name` from `project.local.toml`, then `project.toml`.
 2. `code_root` in `engine.toml`, when the engine layer ships one.
 3. Derivation from the tree, but **only when it is unambiguous**. Exactly one of
-   `src/`, `Assets/` or `Source/` present means that is the root. Two or more
+   `src/`, `Source/` or `Assets/` present means that is the root, where `Assets/`
+   counts only when `ProjectSettings/ProjectVersion.txt` exists (a Unity project). Two or more
    present means the project is genuinely undecidable — do not guess. Compare the
    names exactly as the directory listing spells them: on Windows and default
    macOS an existence test for `Assets/` also succeeds on a lowercase `assets/`,
-   which would make `src/` + `assets/` look ambiguous and a lone `assets/` look
-   like Unity.
+   so the names must be compared as listed. A game made before the rename may
+   still have a lowercase `assets/`: it is read with a warning, never as a code root.
 4. Otherwise: **unresolved.**
 
 `python tools/studio.py project-state` (the `code_root` row) and `python tools/studio.py check` implement exactly this.

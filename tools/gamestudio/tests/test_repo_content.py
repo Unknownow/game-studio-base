@@ -73,13 +73,19 @@ class RepoContentTest(unittest.TestCase):
             dn[:] = [d for d in dn if d not in SKIP_DIRS]
             for f in fn:
                 rel = os.path.relpath(os.path.join(dp, f), REPO).replace(os.sep, "/")
-                if rel in ADDON_OK or rel.startswith("tools/gamestudio/tests/") or not f.endswith((".md", ".py", ".toml", ".yaml", ".yml", ".json", ".sh")):
+                if rel in ADDON_OK or re.fullmatch(r"UPSTREAM[A-Za-z0-9._-]*\.toml", rel) or rel.startswith("tools/gamestudio/tests/") or not f.endswith((".md", ".py", ".toml", ".yaml", ".yml", ".json", ".sh")):
                     continue
                 with open(os.path.join(dp, f), encoding="utf-8", errors="replace") as fh:
                     for n, line in enumerate(fh, 1):
                         if bad.search(line) and "upstream: .claude/" not in line:
                             hits.append("%s:%d" % (rel, n))
         self.assertEqual(hits[:10], [], "%d hits" % len(hits))
+
+    def test_no_lowercase_assets_root(self):
+        r = subprocess.run(["git", "-C", REPO, "ls-files"], capture_output=True, text=True, encoding="utf-8")
+        if r.returncode != 0:
+            self.skipTest("not a git checkout")
+        self.assertEqual([f for f in r.stdout.splitlines() if f.startswith("assets/")], [])
 
     def test_no_other_engine_leftovers(self):
         bad = re.compile(r"[Gg]odot|GDScript|[Uu]nreal|gdshader|Blueprint")

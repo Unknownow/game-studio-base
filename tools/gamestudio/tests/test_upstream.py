@@ -82,7 +82,10 @@ class ClassifyPrecedenceTest(unittest.TestCase):
         self.assertEqual(classify(maps, ignores, "x/o.md"), "-> y/o.md")
 
     def test_real_base_engine_layer_paths_stay_ignored(self):
-        maps, ignores, _, _ = load_maps(REPO)
+        tmp = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, tmp, True)
+        shutil.copy(os.path.join(REPO, "UPSTREAM.toml"), tmp)
+        maps, ignores, _, _ = load_maps(tmp)
         for p in (".claude/skills/dev-story/references/engine-checks.md", "studio-tests/agents/engine/unity/x.md"):
             self.assertTrue(classify(maps, ignores, p).startswith("IGNORED (engine-layer"), p)
 

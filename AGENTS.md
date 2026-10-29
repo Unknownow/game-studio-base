@@ -44,7 +44,7 @@ See `docs/studio/COLLABORATIVE-DESIGN-PRINCIPLE.md` for the full protocol and ex
   `gates/`: director gates. `rules/`: path-scoped rules. `templates/`: document templates.
   `docs/studio/`: framework docs. `docs/architecture/`: your ADRs and control manifest.
   `docs/technical-preferences.md`: your engine and style preferences.
-- `design/`, `production/`, `assets/`, `tests/`, `prototypes/` and the code root are yours. Full layout:
+- `design/`, `production/`, `Assets/`, `tests/`, `prototypes/` and the code root are yours. Full layout:
   `docs/studio/directory-structure.md`.
 - Files listed in `files.manifest` belong to the template; `python tools/studio.py update` replaces
   them. Do not edit them in a game (propose the change upstream instead).

@@ -14,7 +14,7 @@
 ├── rules/                       # Path-scoped coding and content rules
 ├── templates/                   # Document templates the skills write from
 ├── <code root>/                 # Game source code: THE PATH IS ENGINE-SPECIFIC, see below
-├── assets/                      # Game assets (art, audio, vfx, shaders, data)
+├── Assets/                      # Game assets (art, audio, vfx, shaders, data)
 │   └── data/                    # JSON data files (validated by `check`)
 ├── design/                      # Game design documents (gdd, narrative, levels, balance, registry)
 ├── docs/
