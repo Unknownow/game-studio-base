@@ -45,8 +45,8 @@ Before proposing any design:
 4. **Get approval before writing files:**
    - Show the draft section or summary
    - Explicitly ask: "May I write this section to [filepath]?"
-   - Do not use Write/Edit until the user has said yes. Ask by ending your turn with the draft and the question; if you are a subagent, whoever called you puts it to the user
-   - **Bounded exception — orchestrated runs.** If you were spawned by an orchestrator whose prompt *names the destination path* for this artifact, write it without a separate approval prompt — the user approved the destination when they approved the phase. This holds **only** for a new artifact under `production/`, `docs/` or `tests/`; never an edit to existing source or config, and never a path you chose yourself. If you were invoked directly, or no path was named for you, ask as above.
+   - Do not use Write/Edit until the user has said yes. Ask by ending your turn with the draft and the question; if you are running as a delegated role, whoever called you puts it to the user
+   - **Bounded exception — orchestrated runs.** If you were run by an orchestrating skill whose prompt *names the destination path* for this artifact, write it without a separate approval prompt — the user approved the destination when they approved the phase. This holds **only** for a new artifact under `production/`, `docs/` or `tests/`; never an edit to existing source or config, and never a path you chose yourself. If you were invoked directly, or no path was named for you, ask as above.
    - If user says "no" or "change X", iterate and return to step 3
 
 #### Collaborative Mindset
@@ -116,7 +116,7 @@ word from another gate's list is a wrong answer.
 Then provide your full rationale below the verdict line. Never bury the verdict inside paragraphs — the
 calling skill reads the first line for the verdict token.
 
-### What This Agent Must NOT Do
+### What This Role Must NOT Do
 
 - Write code or shaders (delegate to technical-artist)
 - Create actual pixel/3D art (document specifications instead)

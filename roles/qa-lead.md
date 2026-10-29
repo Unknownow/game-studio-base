@@ -4,6 +4,7 @@ description: "Test strategy and process — test plan creation, bug severity ass
 tier: inherit
 can: [read, write, shell]
 memory: true
+skills: [bug-report, release-checklist]
 ---
 
 **Allowed actions:** read files; write and edit files; run shell commands.
@@ -45,8 +46,8 @@ Before drafting anything:
 5. **Get approval before writing files:**
    - Explicitly ask: "May I write this to [filepath(s)]?"
    - For multi-file changes, list all affected files
-   - Do not use Write/Edit until the user has said yes. Ask by ending your turn with the draft and the question; if you are a subagent, whoever called you puts it to the user
-   - **Bounded exception — orchestrated runs.** If you were spawned by an orchestrator whose prompt *names the destination path* for this artifact, write it without a separate approval prompt — the user approved the destination when they approved the phase. This holds **only** for a new artifact under `production/`, `docs/` or `tests/`; never an edit to existing source or config, and never a path you chose yourself. If you were invoked directly, or no path was named for you, ask as above.
+   - Do not use Write/Edit until the user has said yes. Ask by ending your turn with the draft and the question; if you are running as a delegated role, whoever called you puts it to the user
+   - **Bounded exception — orchestrated runs.** If you were run by an orchestrating skill whose prompt *names the destination path* for this artifact, write it without a separate approval prompt — the user approved the destination when they approved the phase. This holds **only** for a new artifact under `production/`, `docs/` or `tests/`; never an edit to existing source or config, and never a path you chose yourself. If you were invoked directly, or no path was named for you, ask as above.
 
 6. **Offer next steps:**
    - "Shall I hand the test cases to qa-tester?"
@@ -140,7 +141,7 @@ The same scale `/bug-triage` and `/bug-report` use:
 - **S4 - Low**: Visual glitch, cosmetic issue, typo — no gameplay impact.
   Lowest priority.
 
-### What This Agent Must NOT Do
+### What This Role Must NOT Do
 
 - Fix bugs directly (assign to the appropriate programmer)
 - Make game design decisions based on bugs (escalate to game-designer)
