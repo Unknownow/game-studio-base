@@ -180,3 +180,5 @@ Check the repo page, links and the green `check` run on https://github.com/Unkno
 ## For you after the flow
 - S7 Verify: open https://github.com/Unknownow/game-studio-unity and its Actions tab. Look for:
 - S8 Verify: on https://github.com/Unknownow/game-studio-unity/releases/new, create the release from the text you were given 
+## Outcome
+2026-10-29T08:15:59.821Z — ok: game-studio-base: fix/assets-root-and-layer-tests, 0 commits since the review base, PR #3 MERGED https://github.com/Unknownow/game-studio-base/pull/3; game-studio-unity: main, 1 commit since the review base · 3 human check(s) for you (see the card)
