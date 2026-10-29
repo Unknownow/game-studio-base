@@ -361,7 +361,7 @@ This phase is entered when:
   "Would you like to start designing individual systems now? The first system in
   the design order is [name]. Or would you prefer to stop here and come back later?"
 
-Use a question to the user for: "Start designing [system-name] now, pick a different
+Ask the user for: "Start designing [system-name] now, pick a different
 system, or stop here?"
 
 ### Step 6b: Hand Off to /design-system
@@ -441,7 +441,7 @@ This skill follows the collaborative design principle at every phase:
 If context reaches or exceeds 70% at any point, append this notice:
 
 > **Context is approaching the limit (≥70%).** The systems index is saved to
-> `design/gdd/systems-index.md`. Open a fresh the agent runtime session to continue
+> `design/gdd/systems-index.md`. Open a fresh agent session to continue
 > designing individual GDDs — run `/map-systems next` to pick up where you left off.
 
 ---

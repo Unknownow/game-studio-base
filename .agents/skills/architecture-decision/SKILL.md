@@ -107,7 +107,7 @@ If there are no remaining priority ADRs and no undesigned GDD systems, offer onl
 
 **Always include this fixed notice in the closing output (do NOT omit it):**
 
-> To validate ADR coverage against your GDDs, open a **fresh the agent runtime session**
+> To validate ADR coverage against your GDDs, open a **fresh agent session**
 > and run `/architecture-review`.
 >
 > **Never run `/architecture-review` in the same session as `/architecture-decision`.**

@@ -140,7 +140,7 @@ shows context at or above 70%. If so, append this notice to the response:
 
 > **Context is approaching the limit (≥70%).** Your progress is saved — all approved
 > sections are written to `design/gdd/[system-name].md`. When you're ready to continue,
-> open a fresh the agent runtime session and run `/design-system [system-name]` — it will
+> open a fresh agent session and run `/design-system [system-name]` — it will
 > detect which sections are complete and resume from the next one.
 
 ---

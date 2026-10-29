@@ -97,8 +97,8 @@ This skill follows the collaborative design principle at every phase:
 3. **Ask before deciding** — present options for each architectural choice
 4. **Draft before approval** — show the content inline before asking to write it.
    Never ask approval for a section the user has not yet seen.
-5. **Use a question to the user for write approvals** — plain text "May I?" is not
-   sufficient. Use the structured tool with labeled options [A]/[B]/[C] (write now /
+5. **Ask the user for write approvals** — plain text "May I?" is not
+   sufficient. Give labeled options [A]/[B]/[C] (write now /
    show full draft first / not yet). For multi-file changesets, list every file
    and what changes, then ask once grouped — not separate plain-text asks per file.
 6. **One write, after every section is approved** — the document is written once,

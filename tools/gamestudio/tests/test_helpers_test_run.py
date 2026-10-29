@@ -30,6 +30,13 @@ class TestRunTest(RepoCase):
             self.assertEqual(self.rule(o), want, o)
             self.assertIn("exit\t%d" % code_, o)
 
+    def test_counts_win_over_a_zero_phrase(self):
+        self.add({"say.py": "print('Ran 3 tests')\nprint('0 tests skipped')\n",
+                  "project.toml": toml('%s say.py' % sys.executable)})
+        code, o, _ = self.run_cli("test-run")
+        self.assertEqual(self.rule(o), "pass", o)
+        self.assertIn("zero_tests\tno", o)
+
     def test_timeout_and_dry_run(self):
         self.add({"project.toml": toml('%s -c "import time; time.sleep(5)"' % sys.executable)})
         code, o, _ = self.run_cli("test-run", "--timeout", "1")

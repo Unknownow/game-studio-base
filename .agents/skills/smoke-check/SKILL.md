@@ -93,6 +93,6 @@ describe what collaborative mode requires, not universal behavior.
   gaps for `/story-done` to follow up on.
 - **`quick` argument** skips Phase 3 (coverage scan) and Phase 4 Batch 3.
   Use it for rapid re-checks after fixing a specific failure.
-- Use a question to the user for all manual smoke check verification.
+- Ask the user for all manual smoke check verification.
 - **Never write the report without asking** — Phase 6 requires explicit
   approval before any file is created.

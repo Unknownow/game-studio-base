@@ -46,6 +46,21 @@ class TestScaffoldTest(RepoCase):
         with open(os.path.join(self.root, "Fake/Tests/Sample.txt"), encoding="utf-8") as fh:
             self.assertEqual(fh.read(), "mine\n")
 
+    def test_paths_outside_the_project_fail(self):
+        class Escape(object):
+            @staticmethod
+            def scaffold_files(ctx):
+                return {"../escape-test.txt": "x"}
+        import io
+        import contextlib
+        with mock.patch.object(engines, "load_by_name", return_value=Escape):
+            buf = io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                code = test_scaffold.main(self.root, ["fake"])
+        self.assertEqual(code, 4)
+        self.assertIn("FAILED	../escape-test.txt	outside the project", buf.getvalue())
+        self.assertFalse(os.path.exists(os.path.join(os.path.dirname(self.root), "escape-test.txt")))
+
     def test_dry_run_and_list(self):
         code, out = self.run_scaffold("fake", "--dry-run")
         self.assertIn("WOULD_CREATE\tFake/Tests/Sample.txt", out)

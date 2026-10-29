@@ -13,7 +13,7 @@
 - Reflexion Log Update
 - Session State Update
 
-Use a question to the user for the write approval:
+Ask the user for the write approval:
 - "Review complete. What would you like to write?"
   - [A] Write all three files — review report (`docs/architecture/architecture-review-[date].md`), traceability index (`docs/architecture/requirements-traceability.md`), TR registry (`docs/architecture/tr-registry.yaml`)
   - [B] Write review report only — `docs/architecture/architecture-review-[date].md`

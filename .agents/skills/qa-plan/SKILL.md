@@ -346,6 +346,6 @@ describe what collaborative mode requires, not universal behavior.
   support. If a formula is absent from the GDD, flag it rather than guessing.
 - **Playtest requirements are advisory**: the user decides whether a playtest
   is warranted for borderline Visual/Feel stories. Flag the case; do not mandate.
-- Use a question to the user for scope selection when no argument is provided.
+- Ask the user for scope selection when no argument is provided.
   Keep all other phases non-interactive — present findings, then ask once to
   approve the write.

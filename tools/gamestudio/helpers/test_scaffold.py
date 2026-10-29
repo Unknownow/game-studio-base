@@ -154,6 +154,11 @@ def main(root, argv):
     created = exists = failed = 0
     for rel, text in files:
         full = os.path.join(root, rel)
+        real_root = os.path.realpath(root)
+        if not (os.path.realpath(full) + os.sep).startswith(real_root + os.sep):
+            failed += 1
+            print("FAILED\t%s\toutside the project" % rel)
+            continue
         if os.path.lexists(full):
             exists += 1
             print("EXISTS\t%s" % rel)

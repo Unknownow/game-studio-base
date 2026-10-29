@@ -803,7 +803,7 @@ recommend and proceed — the tradeoff between user control and speed
 
 #### collaborative (current behavior — no change)
 
-- a question to the user called for every multi-option decision
+- Asks the user for every multi-option decision
 - 2–4 options presented with pros/cons for every design choice
 - Full draft shown and approved before every file write
 - "May I write this to [filepath]?" asked before every write
@@ -813,7 +813,7 @@ recommend and proceed — the tradeoff between user control and speed
 
 #### guided
 
-- a question to the user called for **major decisions only** (see classification below)
+- Asks the user for **major decisions only** (see classification below)
 - Minor decisions: AI states recommendation inline and proceeds — e.g.
   *"Going with a static utility pattern here — it fits the existing architecture.
   Continuing unless you want to change direction."*
@@ -828,7 +828,7 @@ recommend and proceed — the tradeoff between user control and speed
 
 #### autonomous
 
-- No a question to the user calls **except** for categories listed in `automation_always_ask`
+- No questions to the user **except** for categories listed in `automation_always_ask`
 - No draft review
 - No "May I write?" prompts — writes directly
 - Picks the recommended option for every decision without presenting alternatives

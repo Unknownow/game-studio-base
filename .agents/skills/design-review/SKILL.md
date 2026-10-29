@@ -356,7 +356,7 @@ This skill is read-only — no files are written during Phase 4.
 
 ## Phase 5: Next Steps
 
-Use a question to the user for ALL closing interactions. Never plain text.
+Ask the user for ALL closing interactions. Never plain text.
 
 **First widget — what to do next:**
 
@@ -377,7 +377,7 @@ If NEEDS REVISION or MAJOR REVISION NEEDED, build the options from the findings:
 
 Work through all blocking items, asking for design decisions only where you cannot resolve the issue from the GDD and existing docs alone. Group all design-decision questions into a single multi-question prompt before making any edits — do not interrupt mid-revision for each blocker individually.
 
-After all revisions are complete, show a summary table (blocker → fix applied) and use a question to the user for a **post-revision closing widget**:
+After all revisions are complete, show a summary table (blocker → fix applied) and ask the user for a **post-revision closing question**:
 
 - Prompt: "Revisions complete — [N] blockers resolved. What next?"
 - Note current context usage: if context is above ~50%, add: "(Recommended: /clear before re-review — this session has used X% context. A full re-review runs 5 agents and needs clean context.)"

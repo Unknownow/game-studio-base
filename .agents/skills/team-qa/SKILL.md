@@ -45,7 +45,7 @@ below), and the agents that work at them are team members, not director gates.
 - **`individual`** (default): `qa-tester` only; `qa-lead` invoked at phase gates only.
 - **`small`**: `qa-lead` + `qa-tester` pipeline (as documented).
 - **`studio`**: `qa-lead` + per-story `qa-tester` run + sign-off.
-A non-core agent needed at `individual` routes through the nearest active core agent with an informational note. **"Phase gate" means any phase that ends in a question to the user decision point this pipeline itself lists** — a transition under Decision Points above, or a **Gate** step written into the pipeline below — **whatever the `automation` mode**: in `guided` or `autonomous`, where that question is skipped or logged, the phase is still a gate. Not every phase is one. Apply the test literally: if the phase below lists no decision point, it is not a gate, and an agent restricted to "phase gates only" is not run for it. This active-set scoping applies throughout the pipeline below: any phase that names an agent outside the active set routes through the nearest core agent rather than running it.
+A non-core agent needed at `individual` routes through the nearest active core agent with an informational note. **"Phase gate" means any phase that ends in a decision point where the user is asked this pipeline itself lists** — a transition under Decision Points above, or a **Gate** step written into the pipeline below — **whatever the `automation` mode**: in `guided` or `autonomous`, where that question is skipped or logged, the phase is still a gate. Not every phase is one. Apply the test literally: if the phase below lists no decision point, it is not a gate, and an agent restricted to "phase gates only" is not run for it. This active-set scoping applies throughout the pipeline below: any phase that names an agent outside the active set routes through the nearest core agent rather than running it.
 
 **Announce the active set before Phase 1 — never let the collapse be silent.**
 Before running anything, state in one line which agents this run will actually
@@ -213,7 +213,7 @@ options:
 
 Walk through each story in the approved manual QA list.
 
-Batch stories into groups of 3-4 and use a question to the user for each. **Wait for
+Batch stories into groups of 3-4 and ask the user for each. **Wait for
 the tester's answer** and record only what they said: a result the tester did not
 give is never filled in for them. A story nobody answered for stays unexecuted,
 which makes the sign-off NOT ASSESSED — it is not BLOCKED unless they say so.

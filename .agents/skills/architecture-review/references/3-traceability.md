@@ -114,7 +114,7 @@ Extended matrix format:
 
 | TR-ID | GDD | Requirement | ADR | Story | Test File | Test Status |
 |-------|-----|-------------|-----|-------|-----------|-------------|
-| TR-combat-001 | combat.md | Hitbox < 1 frame | ADR-0003 | story-001-hitbox.md | tests/unit/combat/hitbox_test.gd | COVERED |
+| TR-combat-001 | combat.md | Hitbox < 1 frame | ADR-0003 | story-001-hitbox.md | tests/unit/combat/hitbox_test.cs | COVERED |
 | TR-combat-002 | combat.md | Combo window | — | story-002-combo.md | — | NONE (Visual/Feel) |
 | TR-inventory-001 | inventory.md | Persistent storage | ADR-0005 | — | — | NO STORY |
 ```

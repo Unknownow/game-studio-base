@@ -168,7 +168,7 @@ act as each applicable specialist in turn — work through them in order.
 
 If an engine is configured, determine which specialist applies to each file and Act as each of these roles in turn:
 
-- Primary language files (`.gd`, `.cs`, `.cpp`) → Language/Code Specialist
+- Primary language files (`.cs`, `.cpp`, `.py`) → Language/Code Specialist
 - Shader files (`.gdshader`, `.hlsl`, shader graph) → Shader Specialist
 - UI screen/widget code → UI Specialist
 - Cross-cutting or unclear → Primary Specialist

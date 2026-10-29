@@ -143,7 +143,7 @@ Present a completion summary:
 > - Provisional assumptions: [list any assumptions about undesigned dependencies]
 > - Cross-system conflicts found: [list or "none"]
 
-> **To validate this GDD, open a fresh the agent runtime session and run:**
+> **To validate this GDD, open a fresh agent session and run:**
 > `/design-review design/gdd/[system-name].md`
 >
 > **Never run `/design-review` in the same session as `/design-system`.** The reviewing

@@ -177,6 +177,8 @@ def main(root, argv):
     counts = read_counts(out)
     if not out.strip():
         zero, marker = "yes", "no output"
+    elif counts is not None and counts[0] > 0:
+        zero = "no"
     else:
         for rx in ZERO:
             m = rx.search(out)

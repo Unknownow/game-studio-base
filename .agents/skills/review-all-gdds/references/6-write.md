@@ -5,7 +5,7 @@
 
 ## Phase 6: Write Report and Flag GDDs
 
-Use a question to the user for write permission:
+Ask the user for write permission:
 - Prompt: "May I write this review to `design/gdd/gdd-cross-review-[date].md`?"
 - Options: `[A] Yes — write the report` / `[B] No — skip`
 

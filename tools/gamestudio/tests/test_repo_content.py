@@ -11,7 +11,7 @@ from ._util import REPO, STUDIO
 import subprocess
 import sys
 
-ADDON_OK = ("README.md", "AGENTS.md", "CLAUDE.md", "docs/studio/settings-guidance.md", "docs/studio/setup-requirements.md", "docs/studio/WORKFLOW-GUIDE.md", ".agents/skills/upstream-sync/SKILL.md", "tools/gamestudio/claude_sync.py",
+ADDON_OK = ("README.md", "AGENTS.md", "CLAUDE.md", "docs/studio/settings-guidance.md", "docs/studio/setup-requirements.md", "studio-tests/skills/utility/upstream-sync.md", "docs/studio/WORKFLOW-GUIDE.md", ".agents/skills/upstream-sync/SKILL.md", "tools/gamestudio/claude_sync.py",
             "tools/gamestudio/check.py", "tools/gamestudio/cli.py", "tools/gamestudio/data/claude-deny.json", "UPSTREAM.toml",
             "NOTICE", ".gitignore", ".gitattributes", "hooks/post-merge", "hooks/post-checkout", "hooks/pre-commit")
 SKIP_DIRS = {".git", ".claude", "__pycache__"}
@@ -53,7 +53,7 @@ class RepoContentTest(unittest.TestCase):
             dn[:] = [d for d in dn if d not in SKIP_DIRS]
             for f in fn:
                 rel = os.path.relpath(os.path.join(dp, f), REPO).replace(os.sep, "/")
-                if rel in ADDON_OK or rel.startswith(("tools/gamestudio/tests/", "studio-tests/")) or not f.endswith((".md", ".py", ".toml", ".yaml", ".sh")):
+                if rel in ADDON_OK or rel.startswith("tools/gamestudio/tests/") or not f.endswith((".md", ".py", ".toml", ".yaml", ".yml", ".json", ".sh")):
                     continue
                 with open(os.path.join(dp, f), encoding="utf-8", errors="replace") as fh:
                     for n, line in enumerate(fh, 1):

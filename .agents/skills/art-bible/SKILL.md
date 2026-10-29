@@ -98,8 +98,7 @@ whose nine `## N. Name` headings are the ones retrofit mode reads — ask first:
 approved section then replaces its own `[To be designed]` line with `Edit`;
 keep the headings as the template has them.
 
-**A section's approval names its write.** Every section is approved through an
-a question to the user whose approving option is `[A] Lock this in and write it to
+**A section's approval names its write.** Every section is approved through a question to the user whose approving option is `[A] Lock this in and write it to
 design/art/art-bible.md` (Section 1's full option list is below). Choosing it is
 the approval to write that section; no section is written without it, fresh or
 retrofit.
@@ -348,7 +347,7 @@ Before presenting next steps, check project state:
 - Does `design/gdd/gdd-cross-review-*.md` exist? → review-all-gdds is done
 - Do GDDs exist (check above)? → include /consistency-check option
 
-Use a question to the user for next steps. Only include options that are genuinely next based on the state check above:
+Ask the user for next steps. Only include options that are genuinely next based on the state check above:
 
 At `workflow: minimal`, the pool is `/create-stories` (no stories yet) or
 `/dev-story [next story]`, plus Stop here — the GDD/architecture pool below is

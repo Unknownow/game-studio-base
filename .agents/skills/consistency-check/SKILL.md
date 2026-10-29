@@ -353,7 +353,7 @@ Silently append to `production/session-state/active.md` (create the file if it d
 > will never find, and nothing errors along the way. Never invent a report
 > filename here.
 
-Then close with a question to the user widget:
+Then close with a question to the user:
 
 - **Prompt**: "Consistency check complete — [N] conflicts found. What next?"
 - **Options**:

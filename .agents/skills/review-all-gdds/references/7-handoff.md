@@ -5,7 +5,7 @@
 
 ## Phase 7: Handoff
 
-After all file writes are complete, use a question to the user for a closing widget.
+After all file writes are complete, ask the user for a closing question.
 
 Before building options, check project state:
 - Are there any Warning-level items that are simple edits (flagged with "30-second edit", "brief addition", or similar)? → offer inline quick-fix option
